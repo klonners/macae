@@ -341,3 +341,12 @@ html,body{background:#f3f3f3;color:#171717;font-family:'DM Sans',sans-serif}
 .chat-message.theirs .chat-meta{justify-content:flex-start}
 .chat-message.theirs .chat-meta strong{color:#555}
 .chat-message.theirs .chat-content p{background:#f0f0f0;border:1px solid #e5e5e5;border-radius:4px 12px 12px 12px}
+
+
+/* Correct chat sides: You (including newly sent messages) right, Friend left */
+.chat-message{align-self:flex-start;flex-direction:row}
+.chat-message .chat-meta{justify-content:flex-start}
+.chat-message .chat-content p{border-radius:4px 12px 12px 12px}
+.chat-message.theirs{align-self:flex-end;flex-direction:row-reverse}
+.chat-message.theirs .chat-meta{justify-content:flex-end}
+.chat-message.theirs .chat-content p{border-radius:12px 4px 12px 12px}
