@@ -687,12 +687,17 @@ html,body{background:#f3f3f3;color:#171717;font-family:'DM Sans',sans-serif}
 /* Optical alignment: lower only the Copy icon slightly */
 .tool-section .toolbar [data-tool="copy"] > i{transform:translateY(7px)}
 
-
-/* Reliable six-dot to close-cross animation */
-.tool-section #moreBtn .more-toggle-icon{width:22px;height:22px;display:block;overflow:visible;fill:currentColor;stroke:currentColor;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
-.tool-section #moreBtn .more-dots,.tool-section #moreBtn .more-cross{transform-box:fill-box;transform-origin:center;transition:opacity .18s ease,transform .24s cubic-bezier(.2,.8,.2,1)}
-.tool-section #moreBtn .more-cross{fill:none;opacity:0;transform:rotate(-90deg) scale(.45)}
-.tool-section #moreBtn.is-open .more-dots{opacity:0;transform:rotate(90deg) scale(.45)}
-.tool-section #moreBtn.is-open .more-cross{opacity:1;transform:rotate(0) scale(1)}
-.tool-section .more-wrap.icon-animating #moreBtn .more-toggle-icon{animation:moreTogglePop .24s cubic-bezier(.2,.8,.2,1)}
-@keyframes moreTogglePop{from{transform:scale(.82)}to{transform:scale(1)}}
+ 
+/* Original six-dot grip animates into a clean close cross */
+.tool-section #moreBtn i{
+ display:block;
+ transform-origin:center;
+}
+.tool-section .more-wrap.icon-animating #moreBtn i{
+ animation:moreDotsToCross .26s cubic-bezier(.2,.8,.2,1) both;
+}
+@keyframes moreDotsToCross{
+ 0%{opacity:.35;transform:rotate(-90deg) scale(.55)}
+ 65%{opacity:1;transform:rotate(12deg) scale(1.12)}
+ 100%{opacity:1;transform:rotate(0deg) scale(1)}
+}
