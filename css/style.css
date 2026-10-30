@@ -255,3 +255,14 @@ html,body{background:#f3f3f3;color:#171717;font-family:'DM Sans',sans-serif}
 .round-info .trust-action.is-trusted .trust-add{display:none}
 .round-info .trust-action.is-trusted .trust-check{display:block}
 @media(max-width:700px){.round-info .trust-action .trust-icon{width:23px;height:23px}}
+
+
+/* Keep the secret word box centered in the full round bar */
+.round-info{position:relative;}
+.round-info .round-center{position:static;}
+.round-info .word-box{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);z-index:1;}
+@media(max-width:700px){
+ .round-info{position:relative;}
+ .round-info .round-center{position:static;flex:1 1 auto;min-width:0;}
+ .round-info .word-box{left:50%;top:50%;}
+}
