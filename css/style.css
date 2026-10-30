@@ -393,3 +393,22 @@ html,body{background:#f3f3f3;color:#171717;font-family:'DM Sans',sans-serif}
  .chat-section .gift-button{width:38px;height:38px}
  .chat-section .compose{width:100%;margin:0}
 }
+
+
+/* Softer, lighter chat history scrollbar with fully rounded ends */
+.chat-messages{
+ scrollbar-width:thin;
+ scrollbar-color:#cfcfcf transparent;
+}
+.chat-messages::-webkit-scrollbar{width:7px}
+.chat-messages::-webkit-scrollbar-track{
+ background:transparent;
+ border-radius:999px;
+}
+.chat-messages::-webkit-scrollbar-thumb{
+ background:#d2d2d2;
+ border:1px solid transparent;
+ background-clip:padding-box;
+ border-radius:999px;
+}
+.chat-messages::-webkit-scrollbar-thumb:hover{background:#bdbdbd;background-clip:padding-box}
