@@ -129,3 +129,13 @@ html,body{background:#f3f3f3;color:#171717;font-family:'DM Sans',sans-serif}
 .tool-settings-popover input[type=range]{width:105px;accent-color:#222}
 .tool-settings-popover output{min-width:18px;text-align:right;font-weight:700;color:#222}
 .tool-settings-popover input[type=color]{width:34px;height:28px;padding:2px;border:1px solid #ddd;border-radius:6px;background:#fff}
+
+
+/* Header logo from repository asset */
+.game-header{gap:14px}
+.header-logo{display:block;width:48px;height:48px;flex:0 0 48px;object-fit:contain;object-position:center;border-radius:8px}
+@media(max-width:700px){
+ .game-header{grid-template-columns:minmax(0,1fr) auto auto;column-gap:8px}
+ .players{grid-column:2;grid-row:1}
+ .header-logo{grid-column:3;grid-row:1;width:36px;height:36px;flex-basis:36px}
+}
