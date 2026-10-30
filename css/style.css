@@ -493,11 +493,6 @@ html,body{background:#f3f3f3;color:#171717;font-family:'DM Sans',sans-serif}
  transition:transform .2s ease,opacity .16s ease;
  transform:rotate(0deg) scale(1);
 }
-.tool-section #moreBtn.is-open i{
- transform:rotate(90deg) scale(.92);
-}
-
-
 /* Center every drawing tool evenly; keep the full row visually balanced */
 .tool-section .toolbar{
  justify-content:center!important;
@@ -531,9 +526,6 @@ html,body{background:#f3f3f3;color:#171717;font-family:'DM Sans',sans-serif}
 .tool-section #moreBtn i{
  transition:transform .22s cubic-bezier(.2,.8,.2,1),opacity .16s ease;
  transform:rotate(0) scale(1);
-}
-.tool-section #moreBtn.is-open i{
- transform:rotate(90deg) scale(.82);
 }
 @media(max-width:700px){
  .tool-section .toolbar{
@@ -688,16 +680,17 @@ html,body{background:#f3f3f3;color:#171717;font-family:'DM Sans',sans-serif}
 .tool-section .toolbar [data-tool="copy"] > i{transform:translateY(7px)}
 
  
-/* Original six-dot grip animates into a clean close cross */
+/* Keep the selected icon class visible after the entrance animation ends */
 .tool-section #moreBtn i{
  display:block;
  transform-origin:center;
+ transition:none!important;
 }
 .tool-section .more-wrap.icon-animating #moreBtn i{
- animation:moreDotsToCross .26s cubic-bezier(.2,.8,.2,1) both;
+ animation:moreIconPop .24s cubic-bezier(.2,.8,.2,1) both;
 }
-@keyframes moreDotsToCross{
- 0%{opacity:.35;transform:rotate(-90deg) scale(.55)}
- 65%{opacity:1;transform:rotate(12deg) scale(1.12)}
- 100%{opacity:1;transform:rotate(0deg) scale(1)}
+@keyframes moreIconPop{
+ 0%{opacity:.25;transform:scale(.55) rotate(-35deg)}
+ 70%{opacity:1;transform:scale(1.12) rotate(8deg)}
+ 100%{opacity:1;transform:scale(1) rotate(0)}
 }
