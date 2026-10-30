@@ -195,3 +195,13 @@ html,body{background:#f3f3f3;color:#171717;font-family:'DM Sans',sans-serif}
 .round-info{justify-content:flex-start}
 .round-info .round-center{flex:1 1 auto;justify-content:flex-start}
 @media(max-width:700px){.round-info{justify-content:flex-start}.round-info .round-center{justify-content:flex-start;flex:1 1 100%}}
+
+
+/* Keep the word box in its original centered position while timer stays left */
+.round-info{position:relative;justify-content:flex-start}
+.round-info .round-center{position:relative;flex:1 1 auto;justify-content:flex-start}
+.round-info .word-box{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%)}
+@media(max-width:700px){
+ .round-info .round-center{position:relative;flex:1 1 100%;justify-content:flex-start}
+ .round-info .word-box{left:50%;top:50%}
+}
