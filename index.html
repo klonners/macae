@@ -1,46 +1,9 @@
-<!doctype html>
-<html lang="en">
-<head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#101116">
-<meta name="description" content="Macae — a playful space to draw, guess and chat.">
-<title>Macae — Draw together</title><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/style.css"><script src="js/app.js" defer></script>
-</head>
-<body>
-<main class="app">
- <header class="topbar">
-  <a class="brand" href="#" aria-label="Macae home"><span class="brand-mark">m</span><span>macae</span><i></i></a>
-  <div class="room-meta"><span class="live-dot"></span><span>PRIVATE ROOM</span><b>·</b><span>DRAW &amp; GUESS</span></div>
-  <div class="top-actions"><button class="icon-btn invite" id="inviteBtn" title="Copy room link"><svg viewBox="0 0 24 24"><path d="M10 13a5 5 0 0 0 7.1 0l2-2a5 5 0 0 0-7.1-7.1l-1.1 1.1M14 11a5 5 0 0 0-7.1 0l-2 2a5 5 0 0 0 7.1 7.1l1.1-1.1"/></svg><span>Invite</span></button><button class="avatar self" title="Your profile">Y</button></div>
- </header>
- <section class="game-layout">
-  <div class="game-heading"><div><p class="eyebrow">ROUND 01 <span>•</span> YOUR TURN TO DRAW</p><h1>Make it <em>obvious.</em></h1></div><div class="round-status"><span class="status-label">TIME LEFT</span><strong id="timer">01:00</strong></div></div>
-  <div class="players-strip"><div class="player-card"><div class="avatar avatar-pink">Y</div><div><strong>You</strong><small>Artist</small></div><span class="turn-pill">DRAWING</span></div><div class="versus">VS</div><div class="player-card opponent"><div class="avatar avatar-violet">G</div><div><strong>Guest</strong><small>Guesser</small></div><span class="score">0 pts</span></div><div class="word-card"><span class="word-label">YOUR WORD</span><strong id="word">MYSTERY WORD</strong><button id="revealWord" title="Reveal a sample word">↻</button></div></div>
-  <div class="workspace">
-   <aside class="tool-dock" aria-label="Canvas tools">
-    <div class="tool-group">
-     <button class="tool active" data-tool="pen" title="Pencil (P)"><svg viewBox="0 0 24 24"><path d="m4 20 4.2-1 10-10a3 3 0 0 0-4.2-4.2l-10 10L4 20Z"/><path d="m13 6 5 5"/></svg></button>
-     <button class="tool" data-tool="eraser" title="Eraser (E)"><svg viewBox="0 0 24 24"><path d="m7 16-3-3 9-9a3 3 0 0 1 4.2 0l3.8 3.8-9 9H7Z"/><path d="m12 17 3 3h5"/></svg></button>
-     <button class="tool" data-tool="select" title="Select (V)"><svg viewBox="0 0 24 24"><path d="m5 3 14 9-7 1.5L9 21 5 3Z"/></svg></button>
-    </div>
-    <div class="dock-separator"></div>
-    <div class="tool-group">
-     <button class="tool" id="cut" title="Cut selection"><svg viewBox="0 0 24 24"><circle cx="6" cy="6" r="2.5"/><circle cx="6" cy="18" r="2.5"/><path d="m8 8 12 12M8 16 20 4"/></svg></button>
-     <button class="tool" id="paste" title="Paste selection"><svg viewBox="0 0 24 24"><path d="M8 5H5v16h14v-3M9 3h10v14H9z"/><path d="M12 8h4M12 11h4"/></svg></button>
-    </div>
-    <div class="dock-separator"></div>
-    <div class="tool-group">
-     <button class="tool" id="redo" title="Redo"><svg viewBox="0 0 24 24"><path d="m15 5 6 6-6 6M21 11H9a5 5 0 0 0-5 5"/></svg></button>
-     <button class="tool" id="undo" title="Undo"><svg viewBox="0 0 24 24"><path d="m9 5-6 6 6 6M3 11h12a5 5 0 0 1 5 5"/></svg></button>
-    </div>
-    <div class="dock-separator"></div>
-    <div class="more-wrap"><button class="tool more-btn" id="moreBtn" title="More tools"><svg viewBox="0 0 24 24"><circle cx="5" cy="12" r="1"/><circle cx="12" cy="12" r="1"/><circle cx="19" cy="12" r="1"/></svg></button><div class="more-menu" id="moreMenu"><button id="clearBoard">Clear canvas</button><button id="downloadBoard">Download PNG</button><label>Brush size <input id="brushSize" type="range" min="2" max="18" value="4"></label><label>Ink color <input id="inkColor" type="color" value="#8b7bff"></label></div></div>
-   </aside>
-   <div class="canvas-card"><div class="canvas-topline"><div><span class="canvas-indicator"></span> <strong>CANVAS</strong><small>Everything starts with a line</small></div><span class="canvas-hint">PENCIL <kbd>P</kbd> &nbsp; ERASER <kbd>E</kbd> &nbsp; SELECT <kbd>V</kbd></span></div><div class="canvas-area"><canvas id="board"></canvas><div class="canvas-empty" id="emptyState"><div class="empty-icon">✳</div><strong>Your canvas is ready</strong><span>Pick a tool and start sketching</span></div></div><div class="canvas-footer"><span><span class="green-dot"></span> Autosaving locally</span><span id="selectionHint">Tip: select an area to move, cut or copy</span></div></div>
-  </div>
-  <section class="chat-card"><div class="chat-head"><div><span class="chat-icon">✦</span><div><strong>Game chat</strong><small>Talk it out, no spoilers 😉</small></div></div><span class="online-count"><i></i> 2 online</span></div><div class="messages" id="messages"><div class="msg"><div class="avatar avatar-violet">G</div><div class="message-body"><small>GUEST <time>JUST NOW</time></small><div class="bubble">Ready when you are! 🎨</div></div></div></div><form class="compose" id="chatForm"><button type="button" class="emoji" id="emoji" title="Add emoji">☺</button><input id="chatInput" maxlength="180" autocomplete="off" placeholder="Type a message..." aria-label="Chat message"><span class="enter-hint">↵</span><button class="send" aria-label="Send message"><svg viewBox="0 0 24 24"><path d="m21 3-7.5 18-3.5-7-7-3.5L21 3Z"/><path d="M10 14 21 3"/></svg></button></form></section>
- </section>
- <footer class="footer"><span>MADE FOR THE DOODLERS <b>✳</b></span><span>MACAE <b>·</b> PLAY NICE, DRAW WEIRD</span></footer>
- <div class="toast" id="toast"></div>
-</main>
-</body></html>
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#222326"><title>Macae — Draw & Guess</title><link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Outfit:wght@500;600;700;800&display=swap" rel="stylesheet"><link rel="stylesheet" href="css/style.css"><script src="js/app.js" defer></script></head><body><main class="app"><section class="game-shell"><header class="game-header"><a class="brand" href="#"><span class="brand-symbol">m</span><span>macae</span><i></i></a><div class="round-center"><div class="timer-wrap"><span class="clock-icon">◷</span><strong id="timer">00:60</strong></div><div class="word-box"><span class="word-caption">GUESS THE WORD</span><strong id="word">_ _ _ _ _ _</strong></div></div><div class="players"><div class="player"><span class="player-avatar pink-avatar">Y</span><span class="player-name">You</span></div><b>VS</b><div class="player"><span class="player-avatar violet-avatar">G</span><span class="player-name">Guest</span></div></div></header><section class="drawing-stage"><div class="canvas-area"><canvas id="board"></canvas><div class="canvas-prompt" id="emptyState"><span>✳</span><strong>Your canvas, your imagination.</strong><small>Pick up your pencil and make something wonderful.</small></div></div><aside class="toolbar" aria-label="Drawing tools">
+<button class="tool active" data-tool="pen" title="Pencil"><svg viewBox="0 0 24 24"><path d="m4 20 4.5-1 10-10a3 3 0 0 0-4.2-4.2l-10 10Z"/></svg></button>
+<button class="tool" data-tool="eraser" title="Eraser"><svg viewBox="0 0 24 24"><path d="m7 16-3-3 9-9a3 3 0 0 1 4.2 0l3.8 3.8-9 9H7Z"/></svg></button>
+<button class="tool" data-tool="select" title="Select"><svg viewBox="0 0 24 24"><path d="m5 3 14 9-7 1.5L9 21 5 3Z"/></svg></button><span class="tool-divider"></span>
+<button class="tool" id="cut" title="Cut"><svg viewBox="0 0 24 24"><circle cx="6" cy="6" r="2.5"/><circle cx="6" cy="18" r="2.5"/><path d="m8 8 12 12M8 16 20 4"/></svg></button>
+<button class="tool" id="paste" title="Paste"><svg viewBox="0 0 24 24"><path d="M8 5H5v16h14v-3M9 3h10v14H9z"/></svg></button><span class="tool-divider"></span>
+<button class="tool" id="redo" title="Redo"><svg viewBox="0 0 24 24"><path d="m15 5 6 6-6 6M21 11H9a5 5 0 0 0-5 5"/></svg></button>
+<button class="tool" id="undo" title="Undo"><svg viewBox="0 0 24 24"><path d="m9 5-6 6 6 6M3 11h12a5 5 0 0 1 5 5"/></svg></button><span class="tool-divider"></span>
+<div class="more-wrap"><button class="tool" id="moreBtn" title="More"><svg viewBox="0 0 24 24"><circle cx="5" cy="12" r="1"/><circle cx="12" cy="12" r="1"/><circle cx="19" cy="12" r="1"/></svg></button><div class="more-menu" id="moreMenu"><button id="clearBoard">Clear canvas</button><button id="downloadBoard">Download drawing</button><label>Size <input id="brushSize" type="range" min="2" max="18" value="4"></label><label>Color <input id="inkColor" type="color" value="#65ed78"></label></div></div></aside><div class="guess-strip"><div><span class="guess-spark">✦</span><span>Your drawing tells the story.</span></div><small>DRAWING AREA</small></div></section></section><section class="chat-section"><div class="chat-messages" id="messages"><div class="chat-message"><div class="chat-avatar pink-avatar">Y</div><div class="chat-content"><div class="chat-meta"><strong>You</strong><time>just now</time></div><p>Let's make something fun ✨</p></div></div><div class="chat-message theirs"><div class="chat-avatar violet-avatar">G</div><div class="chat-content"><div class="chat-meta"><strong>Guest</strong><time>just now</time></div><p>I'm ready. Show me what you've got!</p></div></div></div><form class="compose" id="chatForm"><input id="chatInput" maxlength="180" autocomplete="off" placeholder="Say something..." aria-label="Chat message"><button type="button" class="emoji" id="emoji">☺</button><button class="send" aria-label="Send"><svg viewBox="0 0 24 24"><path d="m21 3-7.5 18-3.5-7-7-3.5L21 3Z"/></svg></button></form></section><div class="toast" id="toast"></div></main></body></html>
