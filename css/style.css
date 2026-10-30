@@ -120,3 +120,12 @@ html,body{background:#f3f3f3;color:#171717;font-family:'DM Sans',sans-serif}
  .drawing-stage{border-radius:14px}
  .chat-section{border-radius:14px}
 }
+
+/* Double-tap tool settings popover */
+.tool-settings-popover{display:none;position:fixed;z-index:50;width:205px;padding:13px 14px;background:#fff;border:1px solid #dedede;border-radius:13px;box-shadow:0 12px 34px rgba(0,0,0,.16);color:#222;font:12px 'DM Sans',sans-serif}
+.tool-settings-popover.open{display:flex;flex-direction:column;gap:12px}
+.tool-settings-title{font:700 13px 'Outfit',sans-serif;color:#171717}
+.tool-settings-popover label{display:flex;align-items:center;gap:8px;justify-content:space-between;color:#555}
+.tool-settings-popover input[type=range]{width:105px;accent-color:#222}
+.tool-settings-popover output{min-width:18px;text-align:right;font-weight:700;color:#222}
+.tool-settings-popover input[type=color]{width:34px;height:28px;padding:2px;border:1px solid #ddd;border-radius:6px;background:#fff}
