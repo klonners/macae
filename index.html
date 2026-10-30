@@ -1,75 +1,56 @@
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#242424">
-<title>Macae — Draw & Guess</title>
-<style>
-:root{--bg:#242424;--panel:#292929;--pink:#ff0878;--green:#63f56c;--yellow:#ffd43b;--muted:#a3a3a3}
-*{box-sizing:border-box}html,body{margin:0;min-height:100%;background:var(--bg);color:#f6f6f6;font-family:Inter,ui-sans-serif,system-ui,-apple-system,Segoe UI,sans-serif}button,input{font:inherit}
-.app{width:min(1440px,100%);min-height:100vh;margin:auto;padding:18px 22px 22px;display:grid;grid-template-rows:auto minmax(390px,1fr) 270px;gap:14px}
-.top{display:flex;align-items:center;gap:18px;min-height:64px}.brand{font-weight:900;font-size:23px;letter-spacing:-1.5px;color:var(--green);min-width:140px}.brand span{color:var(--pink)}.round-info{display:flex;align-items:center;gap:12px}.timer{color:var(--pink);font-size:27px;font-weight:800;font-variant-numeric:tabular-nums;min-width:80px}.word{border:2px dashed var(--green);border-radius:18px;padding:9px 24px;color:var(--pink);font-size:23px;font-weight:800;min-width:175px;text-align:center}.players{margin-left:auto;display:flex;align-items:center;gap:10px;font-weight:800}.player{width:48px;height:48px;border:3px solid var(--pink);border-radius:50%;display:grid;place-items:center;font-size:23px;background:#333}.vs{color:var(--pink)}
-.board-wrap{position:relative;min-height:390px;border:2px solid #ff1010;border-radius:3px;padding:0 74px 62px 18px;background:#252525;overflow:hidden}
-.canvas-area{position:absolute;inset:0 74px 62px 0;touch-action:none}.canvas-area canvas{width:100%;height:100%;display:block;cursor:crosshair}
-.toolbar{position:absolute;right:8px;top:14px;bottom:62px;width:54px;border:2px solid var(--yellow);border-radius:4px;display:flex;flex-direction:column;align-items:center;justify-content:space-around;padding:6px 3px;background:#292929}.tool{width:40px;height:40px;border:0;border-radius:10px;background:transparent;color:var(--green);font-size:25px;display:grid;place-items:center;cursor:pointer}.tool:hover,.tool.active{background:#ffffff16;outline:1px solid #63f56c88}.tool svg{width:25px;height:25px;stroke:currentColor;fill:none;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round}.dots{color:var(--yellow);font-size:24px;letter-spacing:3px;line-height:1}
-.guess{position:absolute;left:18px;right:74px;bottom:10px;height:48px;border:2px solid var(--pink);display:flex;align-items:center;padding:0 14px;color:var(--pink);font-size:14px;font-weight:700;gap:8px}.guess strong{font-size:16px}.guess span{margin-left:auto;color:#ff9ac4;font-size:12px}
-.chat{border-top:2px solid #ff1010;border-left:2px solid #ff1010;border-right:2px solid #ff1010;border-bottom:2px solid #ff1010;display:grid;grid-template-rows:1fr auto;min-height:0;padding:12px 24px 12px;gap:8px}.messages{overflow:auto;display:flex;flex-direction:column;gap:8px;padding:0 4px}.msg{display:flex;align-items:flex-start;gap:10px;max-width:78%}.msg.mine{align-self:flex-end;flex-direction:row-reverse}.avatar{width:38px;height:38px;border:2px solid #ff1010;border-radius:50%;display:grid;place-items:center;font-size:21px;flex:none}.bubble{padding:7px 11px;color:var(--pink);font-weight:650;line-height:1.35}.bubble small{display:block;color:#ff8ab9;font-size:10px;opacity:.75;margin-bottom:2px}.compose{height:54px;border:2px solid var(--pink);border-radius:28px;display:flex;align-items:center;padding:5px 8px 5px 18px;gap:8px}.compose input{background:transparent;border:0;outline:0;color:#fff;flex:1;min-width:0;font-size:15px}.compose input::placeholder{color:#ff4a99}.send,.emoji{border:0;background:transparent;color:var(--pink);cursor:pointer}.emoji{font-size:23px}.send{background:var(--pink);color:white;border-radius:50%;width:36px;height:36px;font-weight:900}
-.toast{position:absolute;left:50%;top:16px;transform:translateX(-50%);background:#151515eF;border:1px solid #63f56c;padding:9px 14px;border-radius:20px;color:var(--green);font-size:13px;opacity:0;pointer-events:none;transition:opacity .2s}.toast.show{opacity:1}
-@media(max-width:700px){.app{padding:10px;grid-template-rows:auto minmax(390px,58vh) 250px;gap:10px}.top{flex-wrap:wrap;gap:9px}.brand{min-width:0;margin-right:auto}.round-info{order:3;width:100%;justify-content:center}.players{margin-left:0}.player{width:39px;height:39px;font-size:19px}.word{font-size:19px;min-width:145px}.timer{font-size:23px}.board-wrap{padding-left:8px;padding-right:57px}.canvas-area{right:57px}.toolbar{width:43px;right:5px}.tool{width:34px;height:34px}.tool svg{width:22px;height:22px}.guess{left:8px;right:57px;font-size:12px}.chat{padding:10px 9px}.msg{max-width:92%}}
-</style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#242424">
+  <meta name="description" content="Macae — draw, guess and chat.">
+  <title>Macae — Draw &amp; Guess</title>
+  <link rel="stylesheet" href="css/style.css">
+  <script src="js/app.js" defer></script>
 </head>
 <body>
-<main class="app">
-<header class="top">
- <div class="brand">maca<span>æ</span></div>
- <div class="round-info"><div class="timer" id="timer">01:00</div><div class="word" id="word">WORD</div></div>
- <div class="players"><div class="player" title="You">🧑🏻‍🎨</div><span class="vs">VS</span><div class="player" title="Opponent">👩🏽‍🎨</div></div>
-</header>
-<section class="board-wrap" aria-label="Drawing board">
- <div class="canvas-area"><canvas id="board"></canvas></div>
- <aside class="toolbar" aria-label="Drawing tools">
-  <button class="tool active" data-tool="pen" title="Pen"><svg viewBox="0 0 24 24"><path d="m4 20 4.5-1 10-10a3 3 0 0 0-4.2-4.2l-10 10L4 20Z"/></svg></button>
-  <button class="tool" data-tool="eraser" title="Eraser"><svg viewBox="0 0 24 24"><path d="m7 16-3-3 9-9 7 7-8 8H8l-4-4"/></svg></button>
-  <button class="tool" data-tool="circle" title="Circle"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8" stroke-dasharray="2 4"/></svg></button>
-  <button class="tool" data-tool="line" title="Line"><svg viewBox="0 0 24 24"><path d="m4 5 16 14M4 19 20 5"/></svg></button>
-  <button class="tool" id="save" title="Save drawing"><svg viewBox="0 0 24 24"><path d="M5 3h12l3 3v15H4V3h1Zm3 0v6h8V3M8 21v-8h8v8"/></svg></button>
-  <button class="tool" id="redo" title="Redo"><svg viewBox="0 0 24 24"><path d="m14 5 6 6-6 6M20 11H9a5 5 0 0 0-5 5"/></svg></button>
-  <button class="tool" id="undo" title="Undo"><svg viewBox="0 0 24 24"><path d="m10 5-6 6 6 6M4 11h11a5 5 0 0 1 5 5"/></svg></button>
-  <div class="dots">•••</div>
- </aside>
- <div class="guess"><strong>Same elements as attempt!</strong><span>DRAW YOUR CLUE</span></div>
- <div class="toast" id="toast">Saved!</div>
-</section>
-<section class="chat">
- <div class="messages" id="messages">
-  <div class="msg"><div class="avatar">🙂</div><div class="bubble"><small>Mon · 6:10 pm</small>Ready? Let's draw!</div></div>
-  <div class="msg mine"><div class="avatar">😎</div><div class="bubble"><small>You · now</small>Let's go!</div></div>
- </div>
- <form class="compose" id="chatForm"><input id="chatInput" maxlength="180" autocomplete="off" placeholder="Say something..." aria-label="Chat message"><button type="button" class="emoji" id="emoji" title="Add smile">☺</button><button class="send" aria-label="Send message">➤</button></form>
-</section>
-</main>
-<script>
-(()=> {
- const canvas=document.getElementById('board'),ctx=canvas.getContext('2d'),area=canvas.parentElement;
- let tool='pen',drawing=false,start=null,last=null,strokes=[],redoStack=[],current=null;
- const color='#63f56c';
- function resize(){const old=document.createElement('canvas');old.width=canvas.width;old.height=canvas.height;if(canvas.width&&canvas.height)old.getContext('2d').drawImage(canvas,0,0);const r=area.getBoundingClientRect(),dpr=Math.min(devicePixelRatio||1,2);canvas.width=Math.round(r.width*dpr);canvas.height=Math.round(r.height*dpr);ctx.setTransform(dpr,0,0,dpr,0,0);ctx.lineCap='round';ctx.lineJoin='round';redraw();if(old.width&&old.height&&strokes.length===0)ctx.drawImage(old,0,0,old.width,old.height,0,0,r.width,r.height)}
- function redraw(){const r=area.getBoundingClientRect();ctx.clearRect(0,0,r.width,r.height);for(const s of strokes)paint(s);if(current)paint(current)}
- function paint(s){ctx.save();ctx.lineCap='round';ctx.lineJoin='round';ctx.strokeStyle=s.tool==='eraser'?'#252525':s.color;ctx.lineWidth=s.tool==='eraser'?24:s.width;ctx.beginPath();if(s.tool==='circle'){ctx.ellipse((s.x+s.x2)/2,(s.y+s.y2)/2,Math.max(1,Math.abs(s.x2-s.x)/2),Math.max(1,Math.abs(s.y2-s.y)/2),0,0,Math.PI*2)}else if(s.tool==='line'){ctx.moveTo(s.x,s.y);ctx.lineTo(s.x2,s.y2)}else{s.points.forEach((p,i)=>i?ctx.lineTo(p.x,p.y):ctx.moveTo(p.x,p.y))}ctx.stroke();ctx.restore()}
- function pos(e){const r=canvas.getBoundingClientRect();return{x:e.clientX-r.left,y:e.clientY-r.top}}
- canvas.addEventListener('pointerdown',e=>{canvas.setPointerCapture(e.pointerId);drawing=true;start=pos(e);last=start;current={tool,color,width:4,x:start.x,y:start.y,x2:start.x,y2:start.y,points:[start]};});
- canvas.addEventListener('pointermove',e=>{if(!drawing)return;const p=pos(e);if(tool==='pen'||tool==='eraser')current.points.push(p);else{current.x2=p.x;current.y2=p.y}last=p;redraw()});
- function finish(){if(!drawing)return;drawing=false;if(current){strokes.push(current);redoStack=[];current=null;redraw()}}
- canvas.addEventListener('pointerup',finish);canvas.addEventListener('pointercancel',finish);
- document.querySelectorAll('[data-tool]').forEach(b=>b.addEventListener('click',()=>{tool=b.dataset.tool;document.querySelectorAll('[data-tool]').forEach(x=>x.classList.toggle('active',x===b));canvas.style.cursor=tool==='eraser'?'cell':'crosshair'}));
- document.getElementById('undo').onclick=()=>{if(strokes.length){redoStack.push(strokes.pop());redraw()}};
- document.getElementById('redo').onclick=()=>{if(redoStack.length){strokes.push(redoStack.pop());redraw()}};
- document.getElementById('save').onclick=()=>{const a=document.createElement('a');a.download='macae-drawing.png';a.href=canvas.toDataURL('image/png');a.click();notify('Drawing downloaded')};
- function notify(t){const el=document.getElementById('toast');el.textContent=t;el.classList.add('show');setTimeout(()=>el.classList.remove('show'),1500)}
- document.getElementById('emoji').onclick=()=>{const i=document.getElementById('chatInput');i.value+='☺';i.focus()};
- document.getElementById('chatForm').addEventListener('submit',e=>{e.preventDefault();const i=document.getElementById('chatInput'),v=i.value.trim();if(!v)return;const row=document.createElement('div');row.className='msg mine';const av=document.createElement('div');av.className='avatar';av.textContent='😎';const b=document.createElement('div');b.className='bubble';const small=document.createElement('small');small.textContent='You · now';b.append(small,document.createTextNode(v));row.append(av,b);document.getElementById('messages').append(row);i.value='';document.getElementById('messages').scrollTop=99999});
- let seconds=60;setInterval(()=>{seconds=seconds>0?seconds-1:60;document.getElementById('timer').textContent='00:'+String(seconds).padStart(2,'0')},1000);
- const words=['SUNFLOWER','ROCKET','PIZZA','RAINBOW','GUITAR'];let wi=0;document.getElementById('word').textContent='WORD';document.getElementById('word').title='Mystery word';document.getElementById('word').addEventListener('click',()=>{wi=(wi+1)%words.length;document.getElementById('word').textContent=words[wi]});
- new ResizeObserver(resize).observe(area);resize();
-})();
-</script>
-</body></html>
+  <main class="app">
+    <header class="top">
+      <div class="brand">maca<span>æ</span></div>
+      <div class="round-info">
+        <div class="timer" id="timer">01:00</div>
+        <div class="word" id="word">WORD</div>
+      </div>
+      <div class="players">
+        <div class="player" title="You">🧑🏻‍🎨</div>
+        <span class="vs">VS</span>
+        <div class="player" title="Opponent">👩🏽‍🎨</div>
+      </div>
+    </header>
+
+    <section class="board-wrap" aria-label="Drawing board">
+      <div class="canvas-area"><canvas id="board"></canvas></div>
+      <aside class="toolbar" aria-label="Drawing tools">
+        <button class="tool active" data-tool="pen" title="Pen"><svg viewBox="0 0 24 24"><path d="m4 20 4.5-1 10-10a3 3 0 0 0-4.2-4.2l-10 10L4 20Z"/></svg></button>
+        <button class="tool" data-tool="eraser" title="Eraser"><svg viewBox="0 0 24 24"><path d="m7 16-3-3 9-9 7 7-8 8H8l-4-4"/></svg></button>
+        <button class="tool" data-tool="circle" title="Circle"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8" stroke-dasharray="2 4"/></svg></button>
+        <button class="tool" data-tool="line" title="Line"><svg viewBox="0 0 24 24"><path d="m4 5 16 14M4 19 20 5"/></svg></button>
+        <button class="tool" id="save" title="Save drawing"><svg viewBox="0 0 24 24"><path d="M5 3h12l3 3v15H4V3h1Zm3 0v6h8V3M8 21v-8h8v8"/></svg></button>
+        <button class="tool" id="redo" title="Redo"><svg viewBox="0 0 24 24"><path d="m14 5 6 6-6 6M20 11H9a5 5 0 0 0-5 5"/></svg></button>
+        <button class="tool" id="undo" title="Undo"><svg viewBox="0 0 24 24"><path d="m10 5-6 6 6 6M4 11h11a5 5 0 0 1 5 5"/></svg></button>
+        <div class="dots">•••</div>
+      </aside>
+      <div class="guess"><strong>Same elements as attempt!</strong><span>DRAW YOUR CLUE</span></div>
+      <div class="toast" id="toast">Saved!</div>
+    </section>
+
+    <section class="chat" aria-label="Game chat">
+      <div class="messages" id="messages">
+        <div class="msg"><div class="avatar">🙂</div><div class="bubble"><small>Mon · 6:10 pm</small>Ready? Let's draw!</div></div>
+        <div class="msg mine"><div class="avatar">😎</div><div class="bubble"><small>You · now</small>Let's go!</div></div>
+      </div>
+      <form class="compose" id="chatForm">
+        <input id="chatInput" maxlength="180" autocomplete="off" placeholder="Say something..." aria-label="Chat message">
+        <button type="button" class="emoji" id="emoji" title="Add smile">☺</button>
+        <button class="send" aria-label="Send message">➤</button>
+      </form>
+    </section>
+  </main>
+</body>
+</html>
