@@ -309,3 +309,12 @@ html,body{background:#f3f3f3;color:#171717;font-family:'DM Sans',sans-serif}
   .emoji-grid{grid-template-columns:repeat(8,minmax(0,1fr));grid-auto-rows:30px}
   .emoji-choice{height:30px}
 }
+
+
+/* Emoji picker: remove heading and hide scrollbar without disabling scrolling */
+.emoji-picker-head{display:none}
+.emoji-picker{
+  scrollbar-width:none;
+  -ms-overflow-style:none;
+}
+.emoji-picker::-webkit-scrollbar{display:none;width:0;height:0}
