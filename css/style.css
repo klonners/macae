@@ -153,3 +153,26 @@ html,body{background:#f3f3f3;color:#171717;font-family:'DM Sans',sans-serif}
  .round-info .player-avatar{width:28px;height:28px}
  .round-info .word-box{min-width:130px;padding-left:8px;padding-right:8px}
 }
+
+
+/* Header navigation */
+.game-header{justify-content:space-between}
+.main-nav{margin-left:auto;display:flex;align-items:center;justify-content:flex-end;gap:clamp(18px,2.7vw,34px)}
+.nav-link{appearance:none;border:0;background:transparent;padding:10px 0;color:#555;font:600 13px 'DM Sans',sans-serif;cursor:pointer;transition:color .18s ease}
+.nav-link:hover,.nav-link:focus-visible{color:#111}
+.nav-login{appearance:none;border:1px solid #222;background:#171717;color:#fff;border-radius:13px;padding:11px 23px;min-width:94px;font:700 13px 'DM Sans',sans-serif;cursor:pointer;transition:background .18s ease,transform .18s ease}
+.nav-login:hover{background:#383838;transform:translateY(-1px)}
+.nav-link:focus-visible,.nav-login:focus-visible{outline:2px solid #888;outline-offset:4px}
+@media(max-width:700px){
+ .game-header{display:flex;flex-wrap:nowrap;gap:8px;padding:10px 12px;min-height:76px}
+ .main-nav{gap:clamp(9px,2.5vw,16px)}
+ .nav-link{font-size:11px;padding:8px 0}
+ .nav-login{min-width:0;padding:9px 13px;border-radius:11px;font-size:11px}
+}
+@media(max-width:390px){
+ .brand{gap:6px;font-size:17px}
+ .brand-mark{width:28px;height:28px;flex-basis:28px}
+ .main-nav{gap:8px}
+ .nav-link{font-size:10px}
+ .nav-login{padding:8px 10px}
+}
