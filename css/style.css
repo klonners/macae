@@ -205,3 +205,12 @@ html,body{background:#f3f3f3;color:#171717;font-family:'DM Sans',sans-serif}
  .round-info .round-center{position:relative;flex:1 1 100%;justify-content:flex-start}
  .round-info .word-box{left:50%;top:50%}
 }
+
+
+/* Refine stopwatch icon size and alignment beside the countdown */
+.round-info .clock-icon{width:31px;height:31px;display:inline-flex;align-items:center;justify-content:center}
+.round-info .clock-icon i{font-size:27px;line-height:1;display:block}
+@media(max-width:700px){
+ .round-info .clock-icon{width:27px;height:27px}
+ .round-info .clock-icon i{font-size:24px}
+}
