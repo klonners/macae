@@ -718,3 +718,34 @@ html,body{background:#f3f3f3;color:#171717;font-family:'DM Sans',sans-serif}
   max-width:52px!important;
  }
 }
+
+
+/* Center More in the full final subgroup, not a narrow fixed slot */
+.tool-section .toolbar{
+ grid-template-columns:repeat(3,42px) 1px repeat(4,42px) 1px repeat(2,42px) 1px minmax(42px,1fr)!important;
+}
+.tool-section .toolbar>.more-wrap{
+ width:100%!important;
+ min-width:0!important;
+ max-width:none!important;
+ justify-self:stretch!important;
+ display:flex!important;
+ align-items:center!important;
+ justify-content:center!important;
+}
+.tool-section .toolbar>.more-wrap>.tool{
+ width:42px!important;
+ min-width:42px!important;
+ max-width:42px!important;
+ justify-self:center!important;
+}
+@media(max-width:700px){
+ .tool-section .toolbar{
+  grid-template-columns:repeat(3,34px) 1px repeat(4,34px) 1px repeat(2,34px) 1px minmax(34px,1fr)!important;
+ }
+ .tool-section .toolbar>.more-wrap>.tool{
+  width:34px!important;
+  min-width:34px!important;
+  max-width:34px!important;
+ }
+}
