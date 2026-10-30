@@ -29,7 +29,7 @@ function setMoreState(open){
  moreButton.classList.toggle('is-open',open);
  moreButton.setAttribute('aria-expanded',String(open));
  const icon=moreButton.querySelector('i');
- icon.className=open?'fi fi-ts-cross':'fi fi-sr-grip-dots-vertical';
+ icon.className=open?'fi fi-rr-cross':'fi fi-sr-grip-dots-vertical';
  moreWrap.classList.remove('icon-animating');
  void icon.offsetWidth;
  moreWrap.classList.add('icon-animating');
