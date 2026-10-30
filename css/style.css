@@ -685,4 +685,4 @@ html,body{background:#f3f3f3;color:#171717;font-family:'DM Sans',sans-serif}
 
 
 /* Optical alignment: lower only the Copy icon slightly */
-.tool-section .toolbar [data-tool="copy"] > i{transform:translateY(6px)}
+.tool-section .toolbar [data-tool="copy"] > i{transform:translateY(7px)}
