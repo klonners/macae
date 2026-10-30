@@ -369,3 +369,27 @@ html,body{background:#f3f3f3;color:#171717;font-family:'DM Sans',sans-serif}
  .gift-button{left:12px;bottom:18px;width:38px;height:38px}
  .gift-button i{font-size:17px}
 }
+
+
+/* Gift button sits beside the message field in the same composer row */
+.chat-section{
+ display:grid;
+ grid-template-columns:44px minmax(0,1fr);
+ grid-template-rows:minmax(0,1fr) 58px;
+ column-gap:10px;
+}
+.chat-section .chat-messages{grid-column:1/-1;grid-row:1}
+.chat-section .compose{
+ grid-column:2;grid-row:2;
+ width:100%;margin:0;min-width:0;
+}
+.chat-section .gift-button{
+ position:static;grid-column:1;grid-row:2;
+ align-self:center;justify-self:start;
+ width:42px;height:42px;
+}
+@media(max-width:700px){
+ .chat-section{grid-template-columns:38px minmax(0,1fr);grid-template-rows:minmax(0,1fr) 51px;column-gap:8px}
+ .chat-section .gift-button{width:38px;height:38px}
+ .chat-section .compose{width:100%;margin:0}
+}
