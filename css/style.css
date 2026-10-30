@@ -496,3 +496,57 @@ html,body{background:#f3f3f3;color:#171717;font-family:'DM Sans',sans-serif}
 .tool-section #moreBtn.is-open i{
  transform:rotate(90deg) scale(.92);
 }
+
+
+/* Center every drawing tool evenly; keep the full row visually balanced */
+.tool-section .toolbar{
+ justify-content:center!important;
+ align-items:center!important;
+ gap:10px!important;
+}
+.tool-section .toolbar>.tool,
+.tool-section .toolbar .more-wrap>.tool{
+ flex:0 0 42px!important;
+ width:42px!important;
+ height:42px!important;
+ display:grid;
+ place-items:center;
+}
+.tool-section .toolbar .tool i{
+ display:block;
+ font-size:20px;
+ line-height:1;
+}
+.tool-section .toolbar .more-wrap{
+ display:flex;
+ align-items:center;
+ justify-content:center;
+}
+.tool-section .toolbar .tool-divider{
+ flex:0 0 1px!important;
+ width:1px!important;
+ height:25px!important;
+ margin:0 2px!important;
+}
+.tool-section #moreBtn i{
+ transition:transform .22s cubic-bezier(.2,.8,.2,1),opacity .16s ease;
+ transform:rotate(0) scale(1);
+}
+.tool-section #moreBtn.is-open i{
+ transform:rotate(90deg) scale(.82);
+}
+@media(max-width:700px){
+ .tool-section .toolbar{
+  justify-content:center!important;
+  gap:5px!important;
+  padding:5px 6px!important;
+ }
+ .tool-section .toolbar>.tool,
+ .tool-section .toolbar .more-wrap>.tool{
+  flex:0 0 38px!important;
+  width:38px!important;
+  height:40px!important;
+ }
+ .tool-section .toolbar .tool i{font-size:19px}
+ .tool-section .toolbar .tool-divider{margin:0 1px!important;height:23px!important}
+}
