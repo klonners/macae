@@ -350,3 +350,22 @@ html,body{background:#f3f3f3;color:#171717;font-family:'DM Sans',sans-serif}
 .chat-message.theirs{align-self:flex-end;flex-direction:row-reverse}
 .chat-message.theirs .chat-meta{justify-content:flex-end}
 .chat-message.theirs .chat-content p{border-radius:12px 4px 12px 12px}
+
+
+/* Gift shortcut beside the chat composer */
+.chat-section{position:relative}
+.chat-section .compose{width:calc(100% - 54px);margin-left:54px}
+.gift-button{
+ position:absolute;left:28px;bottom:25px;width:42px;height:42px;
+ display:grid;place-items:center;border:1px solid #dedede;border-radius:50%;
+ background:#f7f7f7;color:#222;cursor:pointer;
+ transition:background .18s ease,transform .18s ease,border-color .18s ease;
+}
+.gift-button i{font-size:19px;line-height:1}
+.gift-button:hover{background:#ededed;border-color:#c8c8c8;transform:translateY(-1px)}
+.gift-button:focus-visible{outline:2px solid #888;outline-offset:3px}
+@media(max-width:700px){
+ .chat-section .compose{width:calc(100% - 46px);margin-left:46px}
+ .gift-button{left:12px;bottom:18px;width:38px;height:38px}
+ .gift-button i{font-size:17px}
+}
