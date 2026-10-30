@@ -274,3 +274,14 @@ html,body{background:#f3f3f3;color:#171717;font-family:'DM Sans',sans-serif}
 .chat-messages::-webkit-scrollbar{width:5px}
 .chat-messages::-webkit-scrollbar-thumb{background:#666;border-radius:8px}
 @media(max-width:700px){.chat-section{height:210px;min-height:210px;max-height:210px;grid-template-rows:minmax(0,1fr) 51px}}
+
+
+/* Chat emoji picker */
+.compose{position:relative}
+.emoji-picker{position:absolute;right:42px;bottom:calc(100% + 10px);z-index:30;width:min(300px,calc(100vw - 54px));max-height:220px;padding:10px;background:#303137;border:1px solid #55565f;border-radius:13px;box-shadow:0 12px 32px #0009;overflow-y:auto}
+.emoji-picker[hidden]{display:none}
+.emoji-picker-head{font-size:11px;font-weight:700;color:#ddd;margin:0 0 8px 2px}
+.emoji-grid{display:grid;grid-template-columns:repeat(8,minmax(0,1fr));gap:3px}
+.emoji-choice{border:0;background:transparent;border-radius:7px;min-width:0;height:32px;font-size:20px;cursor:pointer}
+.emoji-choice:hover,.emoji-choice:focus-visible{background:#ffffff20;outline:none}
+@media(max-width:700px){.emoji-picker{right:38px;max-height:190px}.emoji-choice{height:30px;font-size:19px}}
