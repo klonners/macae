@@ -214,3 +214,24 @@ html,body{background:#f3f3f3;color:#171717;font-family:'DM Sans',sans-serif}
  .round-info .clock-icon{width:27px;height:27px}
  .round-info .clock-icon i{font-size:24px}
 }
+
+
+/* Raise hand and report actions on the right side of round information */
+.round-info{display:flex;align-items:center}
+.round-info .round-actions{margin-left:auto;display:flex;align-items:center;gap:18px;flex:none}
+.round-info .round-action{appearance:none;border:0;background:transparent;color:#555;display:flex;align-items:center;gap:7px;padding:9px 2px;font:600 12px 'DM Sans',sans-serif;cursor:pointer;white-space:nowrap;transition:color .18s ease}
+.round-info .round-action i{font-size:19px;line-height:1;display:block}
+.round-info .round-action:hover{color:#111}
+.round-info .round-action:focus-visible{outline:2px solid #888;outline-offset:3px;border-radius:6px}
+@media(max-width:700px){
+ .round-info{flex-wrap:nowrap}
+ .round-info .round-center{flex:1 1 auto;min-width:0}
+ .round-info .round-actions{gap:10px;margin-left:auto}
+ .round-info .round-action{gap:4px;font-size:10px;padding:7px 0}
+ .round-info .round-action i{font-size:17px}
+}
+@media(max-width:390px){
+ .round-info .round-actions{gap:7px}
+ .round-info .round-action{font-size:9px}
+ .round-info .round-action i{font-size:15px}
+}
