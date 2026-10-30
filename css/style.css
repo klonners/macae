@@ -412,3 +412,32 @@ html,body{background:#f3f3f3;color:#171717;font-family:'DM Sans',sans-serif}
  border-radius:999px;
 }
 .chat-messages::-webkit-scrollbar-thumb:hover{background:#bdbdbd;background-clip:padding-box}
+
+
+/* Slightly enlarge the chat emoji and gift controls */
+.chat-section .emoji{
+ font-size:27px;
+ line-height:1;
+ padding:6px;
+ min-width:38px;
+ min-height:38px;
+ display:grid;
+ place-items:center;
+}
+.chat-section .gift-button{
+ width:46px;
+ height:46px;
+}
+.chat-section .gift-button i{font-size:22px}
+@media(max-width:700px){
+ .chat-section .emoji{
+  font-size:25px;
+  min-width:36px;
+  min-height:36px;
+ }
+ .chat-section .gift-button{
+  width:42px;
+  height:42px;
+ }
+ .chat-section .gift-button i{font-size:20px}
+}
