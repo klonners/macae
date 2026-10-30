@@ -247,3 +247,11 @@ html,body{background:#f3f3f3;color:#171717;font-family:'DM Sans',sans-serif}
  .round-info .round-action i{font-size:23px}
 }
 @media(max-width:390px){.round-info .round-action i{font-size:21px}}
+
+
+/* Reliable inline user-add / user-trust icon */
+.round-info .trust-action .trust-icon{width:25px;height:25px;display:block;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;overflow:visible}
+.round-info .trust-action .trust-check{display:none}
+.round-info .trust-action.is-trusted .trust-add{display:none}
+.round-info .trust-action.is-trusted .trust-check{display:block}
+@media(max-width:700px){.round-info .trust-action .trust-icon{width:23px;height:23px}}
