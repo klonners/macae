@@ -49,3 +49,18 @@ html,body{background:#f3f3f3;color:#171717;font-family:'DM Sans',sans-serif}
 .send{background:#171717;color:#fff;box-shadow:0 4px 12px rgba(0,0,0,.13)}
 .toast{background:#fff;border:1px solid #ccc;color:#222;box-shadow:0 8px 25px rgba(0,0,0,.1)}
 @media(max-width:700px){.app{padding:10px}.game-header{background:#fff}.guess-strip>div span:last-child{font-size:13px}}
+
+/* Double-tap the six-dot handle to switch toolbar orientation */
+.toolbar{transition:width .24s ease,height .24s ease,top .24s ease,right .24s ease,bottom .24s ease,left .24s ease}
+.toolbar.toolbar-horizontal{left:50%;right:auto;top:12px;bottom:auto;transform:translateX(-50%);width:max-content;max-width:calc(100% - 28px);height:54px;flex-direction:row;justify-content:center;gap:5px;padding:5px 9px}
+.toolbar.toolbar-horizontal .tool-divider{width:1px;height:24px;flex:none}
+.toolbar.toolbar-horizontal .more-menu{right:0;bottom:auto;top:49px}
+.drawing-stage:has(.toolbar-horizontal) .canvas-area{inset:76px 0 76px 0}
+.drawing-stage:has(.toolbar-horizontal) .guess-strip{left:18px;right:18px}
+@media(max-width:700px){
+ .toolbar.toolbar-horizontal{left:50%;right:auto;top:9px;bottom:auto;width:max-content;max-width:calc(100% - 20px);height:48px;gap:2px;padding:4px 6px}
+ .toolbar.toolbar-horizontal .tool{width:33px;height:35px}
+ .toolbar.toolbar-horizontal .tool-divider{height:22px}
+ .drawing-stage:has(.toolbar-horizontal) .canvas-area{inset:64px 0 75px 0}
+ .drawing-stage:has(.toolbar-horizontal) .guess-strip{left:9px;right:9px}
+}
