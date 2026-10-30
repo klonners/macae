@@ -602,7 +602,7 @@ html,body{background:#f3f3f3;color:#171717;font-family:'DM Sans',sans-serif}
 /* Final toolbar layout: fixed icon slots spread across the full available row */
 .tool-section .toolbar{
  display:grid!important;
- grid-template-columns:repeat(3,42px) 1px repeat(2,42px) 1px repeat(2,42px) 1px 42px!important;
+ grid-template-columns:repeat(3,42px) 1px repeat(3,42px) 1px repeat(2,42px) 1px 42px!important;
  justify-content:space-between!important;
  align-content:center!important;
  align-items:center!important;
@@ -642,20 +642,20 @@ html,body{background:#f3f3f3;color:#171717;font-family:'DM Sans',sans-serif}
 }
 @media(max-width:700px){
  .tool-section .toolbar{
-  grid-template-columns:repeat(3,38px) 1px repeat(2,38px) 1px repeat(2,38px) 1px 38px!important;
+  grid-template-columns:repeat(3,34px) 1px repeat(3,34px) 1px repeat(2,34px) 1px 34px!important;
   padding:5px 6px!important;
-  overflow:visible!important;
+  overflow:hidden!important;
  }
  .tool-section .toolbar>.tool,
  .tool-section .toolbar>.more-wrap{
-  width:38px!important;
-  min-width:38px!important;
-  max-width:38px!important;
+  width:34px!important;
+  min-width:34px!important;
+  max-width:34px!important;
   height:40px!important;
   min-height:40px!important;
  }
  .tool-section .toolbar>.more-wrap>.tool{
-  width:38px!important;
+  width:34px!important;
   height:40px!important;
  }
 }
