@@ -135,3 +135,21 @@ html,body{background:#f3f3f3;color:#171717;font-family:'DM Sans',sans-serif}
 .brand{gap:10px}
 .brand-mark{display:block;width:38px;height:38px;flex:0 0 38px;color:#171717}
 @media(max-width:700px){.brand-mark{width:32px;height:32px;flex-basis:32px}}
+
+
+/* Dedicated round information bar between header and drawing canvas */
+.round-info{flex:none;min-height:94px;padding:14px 30px;display:flex;align-items:center;justify-content:center;gap:clamp(24px,5vw,76px);background:#fff;border:1px solid #e8e8e8;border-radius:18px;box-shadow:0 5px 18px rgba(0,0,0,.035)}
+.round-info .round-center{flex:0 1 auto}
+.round-info .players{min-width:180px;justify-content:center}
+@media(max-width:700px){
+ .round-info{min-height:82px;padding:12px 10px;gap:12px;flex-wrap:wrap}
+ .round-info .round-center{grid-column:auto;grid-row:auto;gap:10px;flex:1;justify-content:center}
+ .round-info .players{grid-column:auto;grid-row:auto;min-width:0;gap:6px}
+ .round-info .word-box{min-width:145px}
+}
+@media(max-width:390px){
+ .round-info{gap:8px}
+ .round-info .players{gap:4px}
+ .round-info .player-avatar{width:28px;height:28px}
+ .round-info .word-box{min-width:130px;padding-left:8px;padding-right:8px}
+}
