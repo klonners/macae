@@ -485,3 +485,14 @@ html,body{background:#f3f3f3;color:#171717;font-family:'DM Sans',sans-serif}
 /* Remove the drawing caption strip and reclaim its canvas space */
 .drawing-stage{padding-bottom:0!important}
 .drawing-stage .canvas-area{inset:0!important}
+
+
+/* More control: vertical grip changes into an animated close icon */
+.tool-section #moreBtn i{
+ display:block;
+ transition:transform .2s ease,opacity .16s ease;
+ transform:rotate(0deg) scale(1);
+}
+.tool-section #moreBtn.is-open i{
+ transform:rotate(90deg) scale(.92);
+}
