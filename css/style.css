@@ -676,5 +676,5 @@ html,body{background:#f3f3f3;color:#171717;font-family:'DM Sans',sans-serif}
 
 /* Small click-pointer marker on the Select tool */
 .tool-section .toolbar [data-tool="select"]{position:relative!important;overflow:visible!important}
-.tool-section .toolbar .select-pointer{position:absolute;top:-3px;right:-4px;font-size:11px;line-height:1;color:var(--green);pointer-events:none;filter:drop-shadow(0 1px 1px #0008)}
-@media(max-width:700px){.tool-section .toolbar .select-pointer{font-size:10px;top:-2px;right:-3px}}
+.tool-section .toolbar .select-pointer{position:absolute;top:50%;right:-2px;transform:translate(35%,-78%);font-size:9px;line-height:1;color:var(--green);pointer-events:none;filter:drop-shadow(0 1px 1px #0008)}
+@media(max-width:700px){.tool-section .toolbar .select-pointer{font-size:8px;right:-2px;top:50%;transform:translate(35%,-78%)}}
