@@ -81,3 +81,28 @@ html,body{background:#f3f3f3;color:#171717;font-family:'DM Sans',sans-serif}
  .drawing-stage:has(.toolbar-horizontal) .canvas-area{inset:0 0 75px 0}
  .drawing-stage:has(.toolbar-horizontal) .guess-strip{left:9px;right:9px}
 }
+/* Canvas always uses the complete drawing stage; controls float above it */
+.drawing-stage .canvas-area,
+.drawing-stage:has(.toolbar-horizontal) .canvas-area{inset:0!important}
+.toolbar{z-index:5}
+.toolbar.toolbar-horizontal{
+ left:50%;right:auto;top:auto;bottom:88px;transform:translateX(-50%);
+ width:max-content;min-width:0;max-width:calc(100% - 32px);
+ height:54px;flex-direction:row;flex-wrap:nowrap;flex-shrink:0;
+ justify-content:center;gap:6px;padding:5px 12px;
+}
+.toolbar.toolbar-horizontal .tool{flex:0 0 40px}
+.toolbar.toolbar-horizontal .tool-divider{flex:0 0 1px;width:1px;height:24px}
+.drawing-stage:has(.toolbar-horizontal) .guess-strip{left:18px;right:18px}
+@media(max-width:700px){
+ .drawing-stage .canvas-area,
+ .drawing-stage:has(.toolbar-horizontal) .canvas-area{inset:0!important}
+ .toolbar.toolbar-horizontal{
+  left:50%;right:auto;top:auto;bottom:84px;transform:translateX(-50%);
+  width:max-content;min-width:0;max-width:calc(100% - 18px);
+  height:48px;gap:2px;padding:4px 6px;
+ }
+ .toolbar.toolbar-horizontal .tool{flex:0 0 33px;width:33px;height:35px}
+ .toolbar.toolbar-horizontal .tool-divider{flex:0 0 1px;height:22px}
+ .drawing-stage:has(.toolbar-horizontal) .guess-strip{left:9px;right:9px}
+}
