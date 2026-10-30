@@ -480,3 +480,8 @@ html,body{background:#f3f3f3;color:#171717;font-family:'DM Sans',sans-serif}
  .tool-section .tool{flex-basis:38px;width:38px;height:40px}
  .tool-section .tool-divider{margin:0 1px}
 }
+
+
+/* Remove the drawing caption strip and reclaim its canvas space */
+.drawing-stage{padding-bottom:0!important}
+.drawing-stage .canvas-area{inset:0!important}
