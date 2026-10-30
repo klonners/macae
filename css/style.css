@@ -550,3 +550,50 @@ html,body{background:#f3f3f3;color:#171717;font-family:'DM Sans',sans-serif}
  .tool-section .toolbar .tool i{font-size:19px}
  .tool-section .toolbar .tool-divider{margin:0 1px!important;height:23px!important}
 }
+
+
+/* Distribute every toolbar control across one clean horizontal row */
+.tool-section .toolbar{
+ justify-content:space-between!important;
+ gap:clamp(2px,1vw,10px)!important;
+}
+.tool-section .toolbar>.tool,
+.tool-section .toolbar>.more-wrap{
+ flex:1 1 0!important;
+ min-width:0!important;
+ display:flex;
+ align-items:center;
+ justify-content:center;
+}
+.tool-section .toolbar>.tool,
+.tool-section .toolbar .more-wrap>.tool{
+ width:min(42px,100%)!important;
+ max-width:42px;
+ flex:0 1 42px!important;
+}
+.tool-section .toolbar>.tool-divider{
+ flex:0 0 1px!important;
+ margin:0!important;
+}
+@media(max-width:700px){
+ .tool-section .toolbar{
+  justify-content:space-between!important;
+  gap:clamp(1px,0.7vw,5px)!important;
+  padding:5px 6px!important;
+ }
+ .tool-section .toolbar>.tool,
+ .tool-section .toolbar>.more-wrap{
+  flex:1 1 0!important;
+  min-width:0!important;
+ }
+ .tool-section .toolbar>.tool,
+ .tool-section .toolbar .more-wrap>.tool{
+  width:min(38px,100%)!important;
+  max-width:38px;
+  height:40px!important;
+ }
+ .tool-section .toolbar .tool-divider{
+  flex:0 0 1px!important;
+  margin:0!important;
+ }
+}
