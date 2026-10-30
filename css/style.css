@@ -682,3 +682,7 @@ html,body{background:#f3f3f3;color:#171717;font-family:'DM Sans',sans-serif}
  .tool-section .toolbar [data-tool="select"]>svg{width:25px!important;height:25px!important}
  .tool-section .toolbar .select-pointer{top:8px;right:3px;font-size:8px}
 }
+
+
+/* Optical alignment: lower only the Copy icon slightly */
+.tool-section .toolbar [data-tool="copy"] > i{transform:translateY(2px)}
