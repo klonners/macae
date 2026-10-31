@@ -1133,3 +1133,80 @@ html,body{background:#f3f3f3;color:#171717;font-family:'DM Sans',sans-serif}
  background:#65ed781a!important;
  border-color:#65ed7755!important;
 }
+
+
+/* Correct More slide: show only the six-dot trigger on the main toolbar.
+   On open, replace the toolbar row with Canvas, Share, Save, Padlock and Cross. */
+.tool-section .toolbar>.more-wrap .more-canvas-group,
+.tool-section .toolbar>.more-wrap .more-actions-group,
+.tool-section .toolbar>.more-wrap .more-divider{
+  display:none!important;
+}
+.tool-section .toolbar.more-open{
+  position:relative!important;
+  display:grid!important;
+  grid-template-columns:1fr!important;
+}
+.tool-section .toolbar.more-open>:not(.more-wrap){
+  visibility:hidden!important;
+  pointer-events:none!important;
+}
+.tool-section .toolbar.more-open>.more-wrap{
+  position:absolute!important;
+  inset:0!important;
+  width:auto!important;
+  min-width:0!important;
+  max-width:none!important;
+  height:100%!important;
+  padding:0 14px!important;
+  margin:0!important;
+  display:flex!important;
+  align-items:center!important;
+  justify-content:space-between!important;
+  gap:0!important;
+  box-sizing:border-box!important;
+}
+.tool-section .toolbar.more-open>.more-wrap .more-canvas-group,
+.tool-section .toolbar.more-open>.more-wrap .more-actions-group{
+  display:flex!important;
+  flex:0 0 auto!important;
+  align-items:center!important;
+  justify-content:center!important;
+  gap:clamp(8px,2vw,18px)!important;
+  margin:0!important;
+}
+.tool-section .toolbar.more-open>.more-wrap .more-divider{
+  display:none!important;
+}
+.tool-section .toolbar.more-open>.more-wrap .more-extra,
+.tool-section .toolbar.more-open>.more-wrap>#moreBtn{
+  display:grid!important;
+  flex:0 0 42px!important;
+  width:42px!important;
+  min-width:42px!important;
+  max-width:42px!important;
+  height:42px!important;
+  min-height:42px!important;
+  margin:0!important;
+  padding:0!important;
+  place-items:center!important;
+}
+.tool-section .toolbar.more-open>.more-wrap .more-extra i{
+  font-size:21px!important;
+  line-height:1!important;
+}
+.tool-section .toolbar.more-open>.more-wrap .more-menu{display:none!important}
+@media(max-width:700px){
+  .tool-section .toolbar.more-open>.more-wrap{padding:0 9px!important}
+  .tool-section .toolbar.more-open>.more-wrap .more-canvas-group,
+  .tool-section .toolbar.more-open>.more-wrap .more-actions-group{gap:clamp(4px,1.5vw,10px)!important}
+  .tool-section .toolbar.more-open>.more-wrap .more-extra,
+  .tool-section .toolbar.more-open>.more-wrap>#moreBtn{
+    flex-basis:36px!important;
+    width:36px!important;
+    min-width:36px!important;
+    max-width:36px!important;
+    height:38px!important;
+    min-height:38px!important;
+  }
+}
