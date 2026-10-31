@@ -1620,3 +1620,35 @@ html,body{background:#f3f3f3;color:#171717;font-family:'DM Sans',sans-serif}
 }
 .tool-section .toolbar.more-open .more-wrap>#moreBtn .more-dots-icon{display:none!important}
 .tool-section .toolbar.more-open .more-wrap>#moreBtn .more-cross-icon{display:block!important}
+
+
+/* Animated icon swap: keep both glyphs mounted at the same anchor */
+.tool-section .toolbar .more-wrap>#moreBtn .more-dots-icon,
+.tool-section .toolbar .more-wrap>#moreBtn .more-cross-icon{
+ display:block!important;
+ position:absolute!important;
+ left:50%!important;
+ top:50%!important;
+ margin:0!important;
+ padding:0!important;
+ line-height:1!important;
+ transform-origin:center!important;
+ transition:opacity .22s ease,transform .22s cubic-bezier(.2,.8,.2,1)!important;
+ pointer-events:none!important;
+}
+.tool-section .toolbar .more-wrap>#moreBtn .more-dots-icon{
+ opacity:1!important;
+ transform:translate(-50%,-50%) rotate(0deg) scale(1)!important;
+}
+.tool-section .toolbar .more-wrap>#moreBtn .more-cross-icon{
+ opacity:0!important;
+ transform:translate(-50%,-50%) rotate(-90deg) scale(.72)!important;
+}
+.tool-section .toolbar.more-open .more-wrap>#moreBtn .more-dots-icon{
+ opacity:0!important;
+ transform:translate(-50%,-50%) rotate(90deg) scale(.72)!important;
+}
+.tool-section .toolbar.more-open .more-wrap>#moreBtn .more-cross-icon{
+ opacity:1!important;
+ transform:translate(-50%,-50%) rotate(0deg) scale(1)!important;
+}
