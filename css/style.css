@@ -801,3 +801,20 @@ html,body{background:#f3f3f3;color:#171717;font-family:'DM Sans',sans-serif}
 .tool-section .toolbar>:not(.more-wrap){
  transition:opacity .12s ease,visibility .12s ease;
 }
+
+
+/* Extra actions appear immediately to the left of the More close button */
+.tool-section .toolbar>.more-wrap{display:flex;align-items:center;justify-content:center;gap:0}
+.tool-section .toolbar>.more-wrap>.more-extra{display:none}
+.tool-section .toolbar.more-open{grid-template-columns:repeat(3,42px) 1px repeat(4,42px) 1px repeat(2,42px) 1px 168px!important}
+.tool-section .toolbar.more-open>.more-wrap{width:168px!important;min-width:168px!important;max-width:168px!important;justify-content:flex-end!important}
+.tool-section .toolbar.more-open>.more-wrap>.more-extra{display:grid!important;flex:0 0 42px!important;width:42px!important;min-width:42px!important;max-width:42px!important}
+.tool-section .toolbar.more-open>.more-wrap>#moreBtn{flex:0 0 42px!important;width:42px!important;min-width:42px!important;max-width:42px!important;transform:none!important}
+.tool-section .toolbar.more-open>.more-wrap>#lockBtn{font-size:19px!important}
+.tool-section .toolbar.more-open>.more-wrap>.more-extra i{font-size:18px!important}
+@media(max-width:700px){
+ .tool-section .toolbar.more-open{grid-template-columns:repeat(3,34px) 1px repeat(4,34px) 1px repeat(2,34px) 1px 136px!important}
+ .tool-section .toolbar.more-open>.more-wrap{width:136px!important;min-width:136px!important;max-width:136px!important}
+ .tool-section .toolbar.more-open>.more-wrap>.more-extra{flex:0 0 34px!important;width:34px!important;min-width:34px!important;max-width:34px!important}
+ .tool-section .toolbar.more-open>.more-wrap>#moreBtn{flex:0 0 34px!important;width:34px!important;min-width:34px!important;max-width:34px!important}
+}
