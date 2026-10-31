@@ -61,10 +61,12 @@ function clearCanvas(){if(!strokes.length&&!current)return;if(!window.confirm('C
 function saveBrandedDrawing(){
  const exportCanvas=createBrandedDrawing();
  const a=document.createElement('a');
- a.download='macae-sketch.png';
+ const stamp=new Date().toISOString().replace(/[:.]/g,'-');
+ a.download='macae-sketch-'+stamp+'.png';
  a.href=exportCanvas.toDataURL('image/png');
+ document.body.append(a);
  a.click();
- notify('Your Macae sketch is saved');
+ a.remove();
 }
 async function shareBrandedDrawing(){
  const button=document.getElementById('shareBtn');
