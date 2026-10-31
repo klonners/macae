@@ -1018,3 +1018,18 @@ html,body{background:#f3f3f3;color:#171717;font-family:'DM Sans',sans-serif}
     flex-basis:36px!important;width:36px!important;min-width:36px!important;max-width:36px!important;height:38px!important;
   }
 }
+
+
+/* Optical centering for the six-dot More glyph */
+.tool-section .toolbar .more-wrap>#moreBtn{
+  display:flex!important;
+  align-items:center!important;
+  justify-content:center!important;
+}
+.tool-section .toolbar .more-wrap>#moreBtn>i.fi-sr-grip-dots{
+  display:block!important;
+  position:relative!important;
+  left:2px!important;
+  margin:0!important;
+  line-height:1!important;
+}
