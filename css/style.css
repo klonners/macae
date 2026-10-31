@@ -1829,3 +1829,39 @@ html,body{background:#f3f3f3;color:#171717;font-family:'DM Sans',sans-serif}
  .game-shell:fullscreen .drawing-stage .canvas-area,
  .game-shell.canvas-expanded-fallback .drawing-stage .canvas-area{right:58px!important}
 }
+
+
+/* Keep chat scroll lock visibly discoverable in the message composer */
+.compose>.chat-scroll-lock{
+ display:grid!important;
+ visibility:visible!important;
+ opacity:1!important;
+ position:relative!important;
+ z-index:2!important;
+ flex:0 0 36px!important;
+ width:36px!important;
+ min-width:36px!important;
+ height:36px!important;
+ padding:0!important;
+ border:1px solid #77727f!important;
+ border-radius:50%!important;
+ background:#34313a!important;
+ color:#f7f5f8!important;
+ place-items:center!important;
+}
+.compose>.chat-scroll-lock i{
+ display:block!important;
+ visibility:visible!important;
+ opacity:1!important;
+ font-size:18px!important;
+ line-height:1!important;
+ color:inherit!important;
+}
+.compose>.chat-scroll-lock.is-locked{
+ color:#ff5aa6!important;
+ border-color:#ff5aa6!important;
+ background:#ff168426!important;
+}
+@media(max-width:700px){
+ .compose>.chat-scroll-lock{flex-basis:34px!important;width:34px!important;min-width:34px!important;height:34px!important}
+}
