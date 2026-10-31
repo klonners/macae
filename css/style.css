@@ -973,3 +973,48 @@ html,body{background:#f3f3f3;color:#171717;font-family:'DM Sans',sans-serif}
 
 .chat-messages.scroll-locked{overflow-y:auto!important;overscroll-behavior:none!important;touch-action:pan-x!important;}
 .chat-messages.scroll-locked::-webkit-scrollbar{width:0!important}
+
+
+/* Final expanded toolbar layout: five distinct equal slots, no overlapping close button */
+.tool-section .toolbar.more-open>.more-wrap{
+  position:relative!important;
+  display:flex!important;
+  width:100%!important;
+  min-width:0!important;
+  max-width:none!important;
+  height:100%!important;
+  padding:0 12px!important;
+  align-items:center!important;
+  justify-content:space-between!important;
+  gap:0!important;
+  box-sizing:border-box!important;
+}
+.tool-section .toolbar.more-open>.more-wrap>#moreBtn{
+  position:relative!important;
+  inset:auto!important;
+  transform:none!important;
+  flex:0 0 42px!important;
+  width:42px!important;
+  min-width:42px!important;
+  max-width:42px!important;
+  height:42px!important;
+  margin:0!important;
+  z-index:1!important;
+}
+.tool-section .toolbar.more-open>.more-wrap>.more-extra{
+  position:relative!important;
+  flex:0 0 42px!important;
+  width:42px!important;
+  min-width:42px!important;
+  max-width:42px!important;
+  height:42px!important;
+  margin:0!important;
+}
+.tool-section .toolbar.more-open .more-menu{display:none!important}
+@media(max-width:700px){
+  .tool-section .toolbar.more-open>.more-wrap{padding:0 7px!important}
+  .tool-section .toolbar.more-open>.more-wrap>#moreBtn,
+  .tool-section .toolbar.more-open>.more-wrap>.more-extra{
+    flex-basis:36px!important;width:36px!important;min-width:36px!important;max-width:36px!important;height:38px!important;
+  }
+}
