@@ -1107,3 +1107,29 @@ html,body{background:#f3f3f3;color:#171717;font-family:'DM Sans',sans-serif}
  .tool-section .toolbar.more-open>.more-wrap .more-divider{height:22px!important}
  .tool-section .toolbar .more-dots-icon{width:21px!important;height:21px!important}
 }
+
+
+/* Canvas lock: freeze the drawing surface and show a status mark at bottom-right */
+.canvas-lock-indicator{
+ position:absolute!important;
+ right:18px!important;
+ bottom:16px!important;
+ z-index:5!important;
+ width:38px!important;
+ height:38px!important;
+ border-radius:11px!important;
+ display:grid!important;
+ place-items:center!important;
+ color:var(--green)!important;
+ background:#202126eF!important;
+ border:1px solid #65ed7755!important;
+ box-shadow:0 3px 12px #0005!important;
+ pointer-events:none!important;
+}
+.canvas-lock-indicator[hidden]{display:none!important}
+.canvas-lock-indicator i{font-size:20px!important;line-height:1!important}
+.tool-section .toolbar .more-actions-group>#padlockCheckBtn.is-locked{
+ color:var(--green)!important;
+ background:#65ed781a!important;
+ border-color:#65ed7755!important;
+}
