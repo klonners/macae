@@ -787,3 +787,7 @@ html,body{background:#f3f3f3;color:#171717;font-family:'DM Sans',sans-serif}
   max-width:34px!important;
  }
 }
+
+
+/* Fine optical adjustment: move only the More button slightly left within group four */
+.tool-section .toolbar>.more-wrap>#moreBtn{transform:translateX(-5px)!important}
