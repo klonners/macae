@@ -1877,15 +1877,10 @@ html,body{background:#f3f3f3;color:#171717;font-family:'DM Sans',sans-serif}
 .paper-plus{display:grid;place-items:center;background:#34353c;color:#fff;font-size:27px;border:1px dashed #aaa}
 @media(max-width:700px){.canvas-area .paper-picker{left:8px;right:8px;max-width:none;transform:translateY(-8px);justify-content:flex-start}.canvas-area .paper-picker.open{transform:translateY(0)}}
 
-/* Canvas actions: clear on the left, border/spacing before expand on the right */
-.tool-section .toolbar.more-open{grid-template-columns:repeat(9,minmax(0,1fr))!important}
-.tool-section .toolbar.more-open>.more-wrap{grid-template-columns:repeat(9,minmax(0,1fr))!important}
-.tool-section .toolbar.more-open>.more-wrap #backgroundBtn{grid-column:1!important}
-.tool-section .toolbar.more-open>.more-wrap #clearCanvasBtn{grid-column:2!important}
-.tool-section .toolbar.more-open>.more-wrap #borderBtn{grid-column:2!important}
-.tool-section .toolbar.more-open>.more-wrap #spacingBtn{grid-column:3!important}
-.tool-section .toolbar.more-open>.more-wrap #expandCanvasBtn{grid-column:4!important}
-.tool-section .toolbar.more-open>.more-wrap #shareBtn{grid-column:6!important}
-.tool-section .toolbar.more-open>.more-wrap #saveBtn{grid-column:7!important}
-.tool-section .toolbar.more-open>.more-wrap #padlockCheckBtn{grid-column:8!important}
-.tool-section .toolbar.more-open>.more-wrap #moreBtn{grid-column:9!important}
+/* Keep Expand + Clear together as their own group, with Clear after Expand */
+.tool-section .toolbar>.more-wrap .more-canvas-actions-group{display:none!important}
+.tool-section .toolbar.more-open>.more-wrap .more-canvas-group,
+.tool-section .toolbar.more-open>.more-wrap .more-canvas-actions-group,
+.tool-section .toolbar.more-open>.more-wrap .more-actions-group{display:flex!important;flex:0 0 auto!important;align-items:center!important;justify-content:center!important;gap:clamp(4px,1.5vw,12px)!important;margin:0!important}
+.tool-section .toolbar.more-open>.more-wrap .more-divider{display:block!important;flex:0 0 1px!important;width:1px!important;height:26px!important;margin:0 clamp(5px,1vw,10px)!important;background:var(--toolbar-border,#d9d9df)!important;opacity:.9!important}
+@media(max-width:700px){.tool-section .toolbar.more-open>.more-wrap .more-divider{height:22px!important;margin:0 4px!important}.tool-section .toolbar.more-open>.more-wrap .more-group{gap:3px!important}}
