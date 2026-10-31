@@ -1210,3 +1210,65 @@ html,body{background:#f3f3f3;color:#171717;font-family:'DM Sans',sans-serif}
     min-height:38px!important;
   }
 }
+
+
+/* Second-slide groups: Canvas / actions / close, separated like the main toolbar */
+.tool-section .toolbar.more-open>.more-wrap .more-divider{
+ display:block!important;
+ width:1px!important;
+ height:27px!important;
+ flex:0 0 1px!important;
+ margin:0 10px!important;
+ background:var(--toolbar-border,#d9d9df)!important;
+ opacity:.9!important;
+}
+.tool-section .toolbar.more-open>.more-wrap .more-canvas-group,
+.tool-section .toolbar.more-open>.more-wrap .more-actions-group{
+ gap:clamp(4px,1vw,10px)!important;
+}
+.tool-section .toolbar.more-open>.more-wrap .more-canvas-group>.more-extra,
+.tool-section .toolbar.more-open>.more-wrap .more-actions-group>.more-extra{
+ flex:0 0 40px!important;
+ width:40px!important;
+ min-width:40px!important;
+ max-width:40px!important;
+ height:40px!important;
+}
+.tool-section .toolbar.more-open>.more-wrap .more-extra i{
+ font-size:20px!important;
+}
+@media(max-width:700px){
+ .tool-section .toolbar.more-open>.more-wrap .more-divider{margin:0 4px!important;height:22px!important}
+ .tool-section .toolbar.more-open>.more-wrap .more-canvas-group,
+ .tool-section .toolbar.more-open>.more-wrap .more-actions-group{gap:2px!important}
+ .tool-section .toolbar.more-open>.more-wrap .more-canvas-group>.more-extra,
+ .tool-section .toolbar.more-open>.more-wrap .more-actions-group>.more-extra{
+  flex-basis:32px!important;width:32px!important;min-width:32px!important;max-width:32px!important;height:36px!important;
+ }
+ .tool-section .toolbar.more-open>.more-wrap .more-extra i{font-size:18px!important}
+}
+
+/* Expand the drawing stage into the browser's fullscreen surface */
+.drawing-stage:fullscreen{
+ width:100vw!important;
+ height:100vh!important;
+ min-height:100vh!important;
+ max-height:none!important;
+ padding:0!important;
+ border:0!important;
+ background:var(--bg)!important;
+}
+.drawing-stage:fullscreen .canvas-area{inset:0!important}
+.drawing-stage:fullscreen .toolbar{z-index:10!important}
+.drawing-stage.canvas-expanded-fallback{
+ position:fixed!important;
+ inset:0!important;
+ z-index:9999!important;
+ width:100vw!important;
+ height:100vh!important;
+ min-height:100vh!important;
+ max-height:none!important;
+ padding:0!important;
+}
+.drawing-stage.canvas-expanded-fallback .canvas-area{inset:0!important}
+.drawing-stage.canvas-expanded-fallback .toolbar{z-index:10000!important}
