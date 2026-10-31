@@ -954,3 +954,19 @@ html,body{background:#f3f3f3;color:#171717;font-family:'DM Sans',sans-serif}
 .chat-scroll-lock i{display:block;line-height:1}
 .chat-messages.scroll-locked{overflow:hidden!important;overscroll-behavior:none}
 @media(max-width:700px){.chat-scroll-lock{width:30px;height:30px;font-size:18px}.compose{gap:7px}}
+
+
+/* Keep the More dots and the close cross anchored to the exact same toolbar position */
+.tool-section .toolbar>.more-wrap>#moreBtn{
+ transform:none!important;
+}
+.tool-section .toolbar.more-open>.more-wrap{
+ position:relative!important;
+}
+.tool-section .toolbar.more-open>.more-wrap>#moreBtn{
+ position:absolute!important;
+ right:0!important;
+ top:50%!important;
+ transform:translateY(-50%)!important;
+ z-index:2!important;
+}
