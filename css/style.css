@@ -1337,3 +1337,82 @@ html,body{background:#f3f3f3;color:#171717;font-family:'DM Sans',sans-serif}
  .tool-section .toolbar.more-open>.more-wrap .more-divider{height:24px!important}
  .tool-section .toolbar.more-open>.more-wrap .expand-canvas-icon{width:20px!important;height:20px!important}
 }
+
+
+/* Polished second-slide toolbar: balanced thirds and consistent icon buttons */
+.tool-section:has(.toolbar.more-open){
+ padding:8px 12px 10px!important;
+}
+.tool-section .toolbar.more-open{
+ height:68px!important;
+ min-height:68px!important;
+ padding:0!important;
+ border:1px solid #e7e8ec!important;
+ border-radius:16px!important;
+ background:#fff!important;
+ box-shadow:0 3px 12px #20212a08!important;
+ overflow:visible!important;
+}
+.tool-section .toolbar.more-open>.more-wrap{
+ grid-template-columns:minmax(0,1fr) 1px minmax(0,1fr) 1px minmax(0,1fr)!important;
+ column-gap:0!important;
+ padding:0 8px!important;
+}
+.tool-section .toolbar.more-open>.more-wrap .more-canvas-group,
+.tool-section .toolbar.more-open>.more-wrap .more-actions-group{
+ width:100%!important;
+ justify-content:center!important;
+ gap:clamp(4px,1.2vw,12px)!important;
+}
+.tool-section .toolbar.more-open>.more-wrap .more-divider{
+ width:1px!important;
+ height:30px!important;
+ background:#dedfe4!important;
+ opacity:1!important;
+}
+.tool-section .toolbar.more-open>.more-wrap .more-extra,
+.tool-section .toolbar.more-open>.more-wrap>#moreBtn{
+ flex:0 0 44px!important;
+ width:44px!important;
+ min-width:44px!important;
+ max-width:44px!important;
+ height:44px!important;
+ min-height:44px!important;
+ border:1px solid transparent!important;
+ border-radius:12px!important;
+ color:#45474e!important;
+ background:transparent!important;
+ transition:background .16s ease,border-color .16s ease,transform .16s ease!important;
+}
+.tool-section .toolbar.more-open>.more-wrap .more-extra i{
+ font-size:21px!important;
+ line-height:1!important;
+}
+.tool-section .toolbar.more-open>.more-wrap .more-extra:hover,
+.tool-section .toolbar.more-open>.more-wrap>#moreBtn:hover{
+ background:#f3f4f6!important;
+ border-color:#e8e9ed!important;
+ transform:translateY(-1px)!important;
+}
+.tool-section .toolbar.more-open>.more-wrap .expand-canvas-icon{
+ width:22px!important;
+ height:22px!important;
+ stroke-width:1.9!important;
+}
+.tool-section .toolbar.more-open>.more-wrap>#moreBtn{
+ grid-column:5!important;
+ justify-self:center!important;
+}
+.tool-section .toolbar.more-open>.more-wrap .more-menu{display:none!important}
+@media(max-width:700px){
+ .tool-section:has(.toolbar.more-open){padding:7px 9px 9px!important}
+ .tool-section .toolbar.more-open{height:62px!important;min-height:62px!important}
+ .tool-section .toolbar.more-open>.more-wrap{padding:0 4px!important}
+ .tool-section .toolbar.more-open>.more-wrap .more-extra,
+ .tool-section .toolbar.more-open>.more-wrap>#moreBtn{
+  flex-basis:40px!important;width:40px!important;min-width:40px!important;max-width:40px!important;height:42px!important;min-height:42px!important;
+ }
+ .tool-section .toolbar.more-open>.more-wrap .more-divider{height:26px!important}
+ .tool-section .toolbar.more-open>.more-wrap .more-extra i{font-size:20px!important}
+ .tool-section .toolbar.more-open>.more-wrap .expand-canvas-icon{width:21px!important;height:21px!important}
+}
