@@ -50,7 +50,32 @@ moreButton.addEventListener('click',e=>{
 });
 moreButton.querySelector('.more-cross-icon').addEventListener('animationend',()=>moreWrap.classList.remove('icon-animating'));
 // Keep the expanded actions open until the user taps the cross again.
-function clearCanvas(){if(!strokes.length&&!current)return;if(!window.confirm('Clear all drawings? The canvas will stay the same, but every painted line will be removed. This action cannot be undone.'))return;strokes=[];redoStack=[];selected=[];current=null;drawing=false;redraw();notify('Canvas cleared')}document.getElementById('clearBoard').onclick=clearCanvas;document.getElementById('clearCanvasBtn').onclick=clearCanvas;const gameShell=document.querySelector('.game-shell'),expandCanvasButton=document.getElementById('expandCanvasBtn'),expandCanvasPath=expandCanvasButton.querySelector('path');const expandIconPath='M8 3H3v5M3 3l7 7M16 3h5v5m0-5-7 7M8 21H3v-5m0 5 7-7m6 7h5v-5m0 5-7-7',collapseIconPath='M3 3l7 7m-5-1 5 1-1-5M21 3l-7 7m1-5-1 5 5-1M3 21l7-7m-5 1 5-1-1 5M21 21l-7-7m1 5-1-5 5 1';async function toggleCanvasExpand(){const expanded=gameShell.classList.contains('canvas-expanded-fallback')||document.fullscreenElement===gameShell;if(expanded){if(document.fullscreenElement===gameShell)await document.exitFullscreen();gameShell.classList.remove('canvas-expanded-fallback');syncExpandButton();return}try{if(gameShell.requestFullscreen)await gameShell.requestFullscreen();else throw new Error('Fullscreen unavailable')}catch(e){gameShell.classList.add('canvas-expanded-fallback')}syncExpandButton()}expandCanvasButton.addEventListener('click',toggleCanvasExpand);function syncExpandButton(){const expanded=document.fullscreenElement===gameShell||gameShell.classList.contains('canvas-expanded-fallback');expandCanvasPath.setAttribute('d',expanded?collapseIconPath:expandIconPath);expandCanvasButton.setAttribute('aria-pressed',String(expanded));expandCanvasButton.title=expanded?'Restore normal view':'Expand canvas';expandCanvasButton.setAttribute('aria-label',expandCanvasButton.title);const areaRect=area.getBoundingClientRect();if(canvas.width!==Math.round(areaRect.width*Math.min(devicePixelRatio||1,2))||canvas.height!==Math.round(areaRect.height*Math.min(devicePixelRatio||1,2)))resize()}document.addEventListener('fullscreenchange',syncExpandButton);function createBrandedDrawing(){
+function clearCanvas(){
+ if(!strokes.length&&!current)return;
+ // Use an in-app confirmation: native confirm dialogs can force browsers to exit fullscreen.
+ if(document.getElementById('clearCanvasConfirm'))return;
+ const overlay=document.createElement('div');
+ overlay.id='clearCanvasConfirm';
+ overlay.style.cssText='position:absolute;inset:0;z-index:1000;display:grid;place-items:center;padding:20px;background:#08090bcc;backdrop-filter:blur(4px);';
+ const panel=document.createElement('div');
+ panel.style.cssText='width:min(340px,100%);padding:22px;border:1px solid #55545d;border-radius:16px;background:#292a30;box-shadow:0 18px 55px #0009;color:#f7f5f8;font:500 14px "DM Sans",sans-serif;';
+ const title=document.createElement('strong');title.textContent='Clear canvas?';title.style.cssText='display:block;font:700 20px Outfit,sans-serif;margin-bottom:8px;';
+ const message=document.createElement('p');message.textContent='This will remove every drawing from the canvas. This action cannot be undone.';message.style.cssText='margin:0 0 20px;color:#c5c2cc;line-height:1.5;';
+ const actions=document.createElement('div');actions.style.cssText='display:flex;justify-content:flex-end;gap:9px;';
+ const cancel=document.createElement('button');cancel.type='button';cancel.textContent='Cancel';cancel.style.cssText='padding:10px 15px;border:1px solid #66636e;border-radius:9px;background:#383941;color:#fff;font-weight:700;';
+ const confirm=document.createElement('button');confirm.type='button';confirm.textContent='Clear';confirm.style.cssText='padding:10px 17px;border:0;border-radius:9px;background:#ff1684;color:#fff;font-weight:700;';
+ const close=()=>overlay.remove();
+ cancel.addEventListener('click',close);
+ overlay.addEventListener('click',e=>{if(e.target===overlay)close()});
+ confirm.addEventListener('click',()=>{
+  strokes=[];redoStack=[];selected=[];current=null;drawing=false;redraw();close();notify('Canvas cleared');
+ });
+ actions.append(cancel,confirm);panel.append(title,message,actions);overlay.append(panel);
+ const previousPosition=gameShell.style.position;
+ if(getComputedStyle(gameShell).position==='static')gameShell.style.position='relative';
+ gameShell.append(overlay);
+ cancel.focus();
+}document.getElementById('clearBoard').onclick=clearCanvas;document.getElementById('clearCanvasBtn').onclick=clearCanvas;const gameShell=document.querySelector('.game-shell'),expandCanvasButton=document.getElementById('expandCanvasBtn'),expandCanvasPath=expandCanvasButton.querySelector('path');const expandIconPath='M8 3H3v5M3 3l7 7M16 3h5v5m0-5-7 7M8 21H3v-5m0 5 7-7m6 7h5v-5m0 5-7-7',collapseIconPath='M3 3l7 7m-5-1 5 1-1-5M21 3l-7 7m1-5-1 5 5-1M3 21l7-7m-5 1 5-1-1 5M21 21l-7-7m1 5-1-5 5 1';async function toggleCanvasExpand(){const expanded=gameShell.classList.contains('canvas-expanded-fallback')||document.fullscreenElement===gameShell;if(expanded){if(document.fullscreenElement===gameShell)await document.exitFullscreen();gameShell.classList.remove('canvas-expanded-fallback');syncExpandButton();return}try{if(gameShell.requestFullscreen)await gameShell.requestFullscreen();else throw new Error('Fullscreen unavailable')}catch(e){gameShell.classList.add('canvas-expanded-fallback')}syncExpandButton()}expandCanvasButton.addEventListener('click',toggleCanvasExpand);function syncExpandButton(){const expanded=document.fullscreenElement===gameShell||gameShell.classList.contains('canvas-expanded-fallback');expandCanvasPath.setAttribute('d',expanded?collapseIconPath:expandIconPath);expandCanvasButton.setAttribute('aria-pressed',String(expanded));expandCanvasButton.title=expanded?'Restore normal view':'Expand canvas';expandCanvasButton.setAttribute('aria-label',expandCanvasButton.title);const areaRect=area.getBoundingClientRect();if(canvas.width!==Math.round(areaRect.width*Math.min(devicePixelRatio||1,2))||canvas.height!==Math.round(areaRect.height*Math.min(devicePixelRatio||1,2)))resize()}document.addEventListener('fullscreenchange',syncExpandButton);function createBrandedDrawing(){
  const header=96,exportCanvas=document.createElement('canvas'),out=exportCanvas.getContext('2d');
  exportCanvas.width=canvas.width;
  exportCanvas.height=canvas.height+header;
