@@ -1590,3 +1590,33 @@ html,body{background:#f3f3f3;color:#171717;font-family:'DM Sans',sans-serif}
  }
  .tool-section .toolbar.more-open>.more-wrap .more-divider{height:26px!important}
 }
+
+
+/* Keep the three-dot and close glyphs locked to the exact same center point */
+.tool-section .toolbar .more-wrap>#moreBtn{
+ position:relative!important;
+ display:grid!important;
+ place-items:center!important;
+}
+.tool-section .toolbar .more-wrap>#moreBtn .more-dots-icon,
+.tool-section .toolbar .more-wrap>#moreBtn .more-cross-icon{
+ position:absolute!important;
+ left:50%!important;
+ top:50%!important;
+ margin:0!important;
+ padding:0!important;
+ line-height:1!important;
+ transform:translate(-50%,-50%)!important;
+}
+.tool-section .toolbar .more-wrap>#moreBtn .more-dots-icon{
+ width:22px!important;
+ height:22px!important;
+}
+.tool-section .toolbar .more-wrap>#moreBtn .more-cross-icon{
+ font-size:28px!important;
+ width:28px!important;
+ height:28px!important;
+ display:none!important;
+}
+.tool-section .toolbar.more-open .more-wrap>#moreBtn .more-dots-icon{display:none!important}
+.tool-section .toolbar.more-open .more-wrap>#moreBtn .more-cross-icon{display:block!important}
