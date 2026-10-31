@@ -945,3 +945,12 @@ html,body{background:#f3f3f3;color:#171717;font-family:'DM Sans',sans-serif}
  .tool-section .toolbar.more-open>.more-wrap>.more-extra i,
  .tool-section .toolbar.more-open>.more-wrap>#moreBtn i{font-size:22px!important}
 }
+
+
+/* Chat scroll lock control, placed immediately before the emoji picker button */
+.chat-scroll-lock{width:34px;height:34px;flex:none;border:0;border-radius:50%;display:grid;place-items:center;background:transparent;color:#a9a6b0;font-size:19px;cursor:pointer;transition:color .15s,background .15s}
+.chat-scroll-lock:hover{background:#ffffff10;color:#f5f2f7}
+.chat-scroll-lock.is-locked{color:var(--pink);background:#ff4a9b18}
+.chat-scroll-lock i{display:block;line-height:1}
+.chat-messages.scroll-locked{overflow:hidden!important;overscroll-behavior:none}
+@media(max-width:700px){.chat-scroll-lock{width:30px;height:30px;font-size:18px}.compose{gap:7px}}
