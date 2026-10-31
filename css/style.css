@@ -1416,3 +1416,77 @@ html,body{background:#f3f3f3;color:#171717;font-family:'DM Sans',sans-serif}
  .tool-section .toolbar.more-open>.more-wrap .more-extra i{font-size:20px!important}
  .tool-section .toolbar.more-open>.more-wrap .expand-canvas-icon{width:21px!important;height:21px!important}
 }
+
+
+/* Equal spacing: distribute all seven toolbar controls across the full row */
+.tool-section .toolbar.more-open>.more-wrap{
+ display:grid!important;
+ grid-template-columns:repeat(7,minmax(0,1fr))!important;
+ align-items:center!important;
+ justify-items:stretch!important;
+ column-gap:0!important;
+ padding:0!important;
+}
+.tool-section .toolbar.more-open>.more-wrap .more-canvas-group,
+.tool-section .toolbar.more-open>.more-wrap .more-actions-group{
+ display:contents!important;
+}
+.tool-section .toolbar.more-open>.more-wrap .more-divider{
+ display:none!important;
+}
+.tool-section .toolbar.more-open>.more-wrap #backgroundBtn{grid-column:1!important}
+.tool-section .toolbar.more-open>.more-wrap #clearCanvasBtn{grid-column:2!important}
+.tool-section .toolbar.more-open>.more-wrap #expandCanvasBtn{grid-column:3!important}
+.tool-section .toolbar.more-open>.more-wrap #shareBtn{grid-column:4!important}
+.tool-section .toolbar.more-open>.more-wrap #saveBtn{grid-column:5!important}
+.tool-section .toolbar.more-open>.more-wrap #padlockCheckBtn{grid-column:6!important}
+.tool-section .toolbar.more-open>.more-wrap #moreBtn{grid-column:7!important;justify-self:stretch!important}
+.tool-section .toolbar.more-open>.more-wrap .more-extra,
+.tool-section .toolbar.more-open>.more-wrap #moreBtn{
+ width:100%!important;
+ min-width:0!important;
+ max-width:none!important;
+ height:44px!important;
+ min-height:44px!important;
+ margin:0!important;
+ padding:0!important;
+ justify-self:stretch!important;
+ display:grid!important;
+ place-items:center!important;
+ border:0!important;
+ border-radius:10px!important;
+ background:transparent!important;
+ box-shadow:none!important;
+}
+.tool-section .toolbar.more-open>.more-wrap #shareBtn,
+.tool-section .toolbar.more-open>.more-wrap #moreBtn{
+ position:relative!important;
+}
+.tool-section .toolbar.more-open>.more-wrap #shareBtn:before,
+.tool-section .toolbar.more-open>.more-wrap #moreBtn:before{
+ content:"";
+ position:absolute;
+ left:0;
+ top:8px;
+ bottom:8px;
+ width:1px;
+ background:#dedfe4;
+}
+.tool-section .toolbar.more-open>.more-wrap .more-extra i{
+ margin:0!important;
+ font-size:21px!important;
+ line-height:1!important;
+}
+.tool-section .toolbar.more-open>.more-wrap .expand-canvas-icon{
+ width:22px!important;
+ height:22px!important;
+}
+@media(max-width:700px){
+ .tool-section .toolbar.more-open{height:62px!important;min-height:62px!important}
+ .tool-section .toolbar.more-open>.more-wrap{padding:0!important}
+ .tool-section .toolbar.more-open>.more-wrap .more-extra,
+ .tool-section .toolbar.more-open>.more-wrap #moreBtn{
+  height:42px!important;min-height:42px!important;
+ }
+ .tool-section .toolbar.more-open>.more-wrap .more-extra i{font-size:20px!important}
+}
