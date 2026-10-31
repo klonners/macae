@@ -818,3 +818,40 @@ html,body{background:#f3f3f3;color:#171717;font-family:'DM Sans',sans-serif}
  .tool-section .toolbar.more-open>.more-wrap>.more-extra{flex:0 0 34px!important;width:34px!important;min-width:34px!important;max-width:34px!important}
  .tool-section .toolbar.more-open>.more-wrap>#moreBtn{flex:0 0 34px!important;width:34px!important;min-width:34px!important;max-width:34px!important}
 }
+
+
+/* Match the expanded More actions to the existing toolbar button system */
+.tool-section .toolbar.more-open>.more-wrap{gap:0!important;align-items:center!important}
+.tool-section .toolbar.more-open>.more-wrap>.more-extra,
+.tool-section .toolbar.more-open>.more-wrap>#moreBtn{
+ box-sizing:border-box!important;
+ height:42px!important;
+ min-height:42px!important;
+ padding:0!important;
+ margin:0!important;
+ border:1px solid transparent!important;
+ border-radius:10px!important;
+ display:grid!important;
+ place-items:center!important;
+ background:transparent!important;
+ color:var(--green)!important;
+}
+.tool-section .toolbar.more-open>.more-wrap>.more-extra i{
+ display:block!important;
+ font-size:21px!important;
+ line-height:1!important;
+}
+.tool-section .toolbar.more-open>.more-wrap>#lockBtn i{font-size:21px!important}
+.tool-section .toolbar.more-open>.more-wrap>.more-extra:hover,
+.tool-section .toolbar.more-open>.more-wrap>#moreBtn:hover{
+ background:#ffffff10!important;
+}
+@media(max-width:700px){
+ .tool-section .toolbar.more-open>.more-wrap>.more-extra,
+ .tool-section .toolbar.more-open>.more-wrap>#moreBtn{
+  height:35px!important;
+  min-height:35px!important;
+  border-radius:9px!important;
+ }
+ .tool-section .toolbar.more-open>.more-wrap>.more-extra i{font-size:19px!important}
+}
