@@ -34,8 +34,18 @@ function setMoreState(open){
  void icon.offsetWidth;
  moreWrap.classList.add('icon-animating');
 }
-moreButton.addEventListener('click',e=>{
+let morePointerHandledAt=0;
+moreButton.addEventListener('pointerup',e=>{
+ if(e.button!==0&&e.pointerType!=='touch')return;
+ e.preventDefault();
  e.stopPropagation();
+ morePointerHandledAt=Date.now();
+ setMoreState(moreButton.getAttribute('aria-expanded')!=='true');
+});
+moreButton.addEventListener('click',e=>{
+ e.preventDefault();
+ e.stopPropagation();
+ if(Date.now()-morePointerHandledAt<700)return;
  setMoreState(moreButton.getAttribute('aria-expanded')!=='true');
 });
 moreButton.querySelector('.more-cross-icon').addEventListener('animationend',()=>moreWrap.classList.remove('icon-animating'));
