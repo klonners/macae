@@ -1861,3 +1861,18 @@ html,body{background:#f3f3f3;color:#171717;font-family:'DM Sans',sans-serif}
  color:#ff5aa6!important;
  background:#ff16841c!important;
 }
+
+/* Horizontal paper/background chooser */
+.canvas-area .paper-picker{position:absolute;z-index:8;top:12px;left:50%;transform:translate(-50%,-8px);display:flex;gap:9px;max-width:calc(100% - 24px);overflow-x:auto;padding:9px 11px;border:1px solid #ffffff24;border-radius:14px;background:#202127ed;box-shadow:0 8px 28px #0004;opacity:0;visibility:hidden;pointer-events:none;transition:opacity .18s ease,transform .18s ease}
+.canvas-area .paper-picker.open{opacity:1;visibility:visible;pointer-events:auto;transform:translate(-50%,0)}
+.paper-picker button{flex:0 0 64px;display:flex;flex-direction:column;align-items:center;gap:5px;padding:4px;border:1px solid transparent;border-radius:9px;background:transparent;color:#e8e7eb;cursor:pointer}
+.paper-picker button.selected{border-color:#ff1684;background:#ff168418}
+.paper-picker small{font:600 10px 'DM Sans',sans-serif;white-space:nowrap}
+.paper-thumb{display:block;width:48px;height:42px;border-radius:5px;border:1px solid #ffffff38;box-shadow:0 2px 5px #0003}
+.paper-default{background-color:#26272b;background-image:radial-gradient(#ffffff40 .8px,transparent .8px);background-size:7px 7px}
+.paper-blank{background:#fff}
+.paper-lines{background:repeating-linear-gradient(to bottom,#fff 0 9px,#cbdcf0 10px 11px)}
+.paper-torn{background:linear-gradient(135deg,#ead9b8,#b99568);border:1px dashed #8b6a45}
+.paper-math{background-color:#fff;background-image:linear-gradient(#d8e7f7 1px,transparent 1px),linear-gradient(90deg,#d8e7f7 1px,transparent 1px);background-size:8px 8px}
+.paper-plus{display:grid;place-items:center;background:#34353c;color:#fff;font-size:27px;border:1px dashed #aaa}
+@media(max-width:700px){.canvas-area .paper-picker{left:8px;right:8px;max-width:none;transform:translateY(-8px);justify-content:flex-start}.canvas-area .paper-picker.open{transform:translateY(0)}}
