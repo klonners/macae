@@ -1931,3 +1931,81 @@ html,body{background:#f3f3f3;color:#171717;font-family:'DM Sans',sans-serif}
   }
   .tool-section .toolbar.more-open>.more-wrap .more-divider{margin:0 3px!important;height:20px!important}
 }
+
+
+/* Keep the drawing panel and toolbar container identical in both More states */
+.tool-section{
+  display:block!important;
+  width:100%!important;
+  min-width:0!important;
+  max-width:100%!important;
+  flex:0 0 auto!important;
+  box-sizing:border-box!important;
+}
+.tool-section .toolbar,
+.tool-section .toolbar.more-open{
+  display:block!important;
+  position:relative!important;
+  width:100%!important;
+  min-width:0!important;
+  max-width:100%!important;
+  height:68px!important;
+  min-height:68px!important;
+  max-height:68px!important;
+  padding:0!important;
+  border:1px solid #e5e5e5!important;
+  border-radius:13px!important;
+  box-sizing:border-box!important;
+  overflow:hidden!important;
+  background:#fafafa!important;
+}
+.tool-section .toolbar.more-open{
+  /* Do not let the expanded grid's intrinsic track width resize its parent */
+  grid-template-columns:minmax(0,1fr)!important;
+}
+.tool-section .toolbar>.more-wrap,
+.tool-section .toolbar.more-open>.more-wrap{
+  position:absolute!important;
+  inset:0!important;
+  display:flex!important;
+  width:100%!important;
+  min-width:0!important;
+  max-width:100%!important;
+  height:100%!important;
+  box-sizing:border-box!important;
+  align-items:center!important;
+  justify-content:flex-end!important;
+  overflow:hidden!important;
+  padding:0 8px!important;
+}
+.tool-section .toolbar.more-open>.more-wrap .more-canvas-group,
+.tool-section .toolbar.more-open>.more-wrap .more-canvas-actions-group,
+.tool-section .toolbar.more-open>.more-wrap .more-actions-group{
+  flex:0 1 auto!important;
+  min-width:0!important;
+}
+.tool-section .toolbar.more-open>.more-wrap .more-extra,
+.tool-section .toolbar.more-open>.more-wrap>#moreBtn{
+  flex:0 0 38px!important;
+  width:38px!important;
+  min-width:38px!important;
+  max-width:38px!important;
+}
+@media(max-width:700px){
+  .tool-section .toolbar,
+  .tool-section .toolbar.more-open{
+    height:62px!important;
+    min-height:62px!important;
+    max-height:62px!important;
+  }
+  .tool-section .toolbar.more-open>.more-wrap{padding:0 3px!important}
+  .tool-section .toolbar.more-open>.more-wrap .more-extra,
+  .tool-section .toolbar.more-open>.more-wrap>#moreBtn{
+    flex:0 0 32px!important;
+    width:32px!important;
+    min-width:32px!important;
+    max-width:32px!important;
+    height:36px!important;
+    min-height:36px!important;
+  }
+}
