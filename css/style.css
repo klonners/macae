@@ -1490,3 +1490,52 @@ html,body{background:#f3f3f3;color:#171717;font-family:'DM Sans',sans-serif}
  }
  .tool-section .toolbar.more-open>.more-wrap .more-extra i{font-size:20px!important}
 }
+
+
+/* Divider alignment: reserve equal-width slots around both separator lines */
+.tool-section .toolbar.more-open>.more-wrap{
+ grid-template-columns:repeat(9,minmax(0,1fr))!important;
+ column-gap:0!important;
+ padding:0!important;
+}
+.tool-section .toolbar.more-open>.more-wrap #backgroundBtn{grid-column:1!important}
+.tool-section .toolbar.more-open>.more-wrap #clearCanvasBtn{grid-column:2!important}
+.tool-section .toolbar.more-open>.more-wrap #expandCanvasBtn{grid-column:3!important}
+.tool-section .toolbar.more-open>.more-wrap .more-divider:first-of-type{
+ display:block!important;
+ grid-column:4!important;
+ justify-self:center!important;
+ align-self:center!important;
+ width:1px!important;
+ height:30px!important;
+ margin:0!important;
+ background:#d9dbe0!important;
+}
+.tool-section .toolbar.more-open>.more-wrap #shareBtn{grid-column:5!important}
+.tool-section .toolbar.more-open>.more-wrap #saveBtn{grid-column:6!important}
+.tool-section .toolbar.more-open>.more-wrap #padlockCheckBtn{grid-column:7!important}
+.tool-section .toolbar.more-open>.more-wrap .more-divider:nth-of-type(2){
+ display:block!important;
+ grid-column:8!important;
+ justify-self:center!important;
+ align-self:center!important;
+ width:1px!important;
+ height:30px!important;
+ margin:0!important;
+ background:#d9dbe0!important;
+}
+.tool-section .toolbar.more-open>.more-wrap #moreBtn{grid-column:9!important}
+.tool-section .toolbar.more-open>.more-wrap #shareBtn:before,
+.tool-section .toolbar.more-open>.more-wrap #moreBtn:before{display:none!important}
+.tool-section .toolbar.more-open>.more-wrap .more-extra,
+.tool-section .toolbar.more-open>.more-wrap #moreBtn{
+ justify-self:stretch!important;
+ width:100%!important;
+ min-width:0!important;
+ max-width:none!important;
+ margin:0!important;
+}
+@media(max-width:700px){
+ .tool-section .toolbar.more-open>.more-wrap .more-divider:first-of-type,
+ .tool-section .toolbar.more-open>.more-wrap .more-divider:nth-of-type(2){height:26px!important}
+}
