@@ -51,22 +51,23 @@ moreButton.addEventListener('click',e=>{
 moreButton.querySelector('.more-cross-icon').addEventListener('animationend',()=>moreWrap.classList.remove('icon-animating'));
 // Keep the expanded actions open until the user taps the cross again.
 function clearCanvas(){if(!strokes.length&&!current)return;if(!window.confirm('Clear all drawings? The canvas will stay the same, but every painted line will be removed. This action cannot be undone.'))return;strokes=[];redoStack=[];selected=[];current=null;drawing=false;redraw();notify('Canvas cleared')}document.getElementById('clearBoard').onclick=clearCanvas;document.getElementById('clearCanvasBtn').onclick=clearCanvas;const gameShell=document.querySelector('.game-shell'),expandCanvasButton=document.getElementById('expandCanvasBtn'),expandCanvasPath=expandCanvasButton.querySelector('path');const expandIconPath='M8 3H3v5M3 3l7 7M16 3h5v5m0-5-7 7M8 21H3v-5m0 5 7-7m6 7h5v-5m0 5-7-7',collapseIconPath='M3 3l7 7m-5-1 5 1-1-5M21 3l-7 7m1-5-1 5 5-1M3 21l7-7m-5 1 5-1-1 5M21 21l-7-7m1 5-1-5 5 1';async function toggleCanvasExpand(){const expanded=gameShell.classList.contains('canvas-expanded-fallback')||document.fullscreenElement===gameShell;if(expanded){if(document.fullscreenElement===gameShell)await document.exitFullscreen();gameShell.classList.remove('canvas-expanded-fallback');syncExpandButton();return}try{if(gameShell.requestFullscreen)await gameShell.requestFullscreen();else throw new Error('Fullscreen unavailable')}catch(e){gameShell.classList.add('canvas-expanded-fallback')}syncExpandButton()}expandCanvasButton.addEventListener('click',toggleCanvasExpand);function syncExpandButton(){const expanded=document.fullscreenElement===gameShell||gameShell.classList.contains('canvas-expanded-fallback');expandCanvasPath.setAttribute('d',expanded?collapseIconPath:expandIconPath);expandCanvasButton.setAttribute('aria-pressed',String(expanded));expandCanvasButton.title=expanded?'Restore normal view':'Expand canvas';expandCanvasButton.setAttribute('aria-label',expandCanvasButton.title);const areaRect=area.getBoundingClientRect();if(canvas.width!==Math.round(areaRect.width*Math.min(devicePixelRatio||1,2))||canvas.height!==Math.round(areaRect.height*Math.min(devicePixelRatio||1,2)))resize()}document.addEventListener('fullscreenchange',syncExpandButton);function createBrandedDrawing(){
- const header=78,exportCanvas=document.createElement('canvas'),out=exportCanvas.getContext('2d');
+ const header=96,exportCanvas=document.createElement('canvas'),out=exportCanvas.getContext('2d');
  exportCanvas.width=canvas.width;
  exportCanvas.height=canvas.height+header;
  out.fillStyle='#ffffff';
  out.fillRect(0,0,exportCanvas.width,exportCanvas.height);
  out.fillStyle='#24252b';
- out.font='700 30px Outfit, "DM Sans", sans-serif';
+ out.font='800 34px Outfit, "DM Sans", sans-serif';
  out.textBaseline='middle';
- out.fillText('macae',24,25);
- out.fillStyle='#8b8d96';
- out.font='500 12px "DM Sans", sans-serif';
- out.fillText(new Date().toLocaleDateString('en-GB',{day:'2-digit',month:'short',year:'2-digit'}),24,55);
+ out.textAlign='left';
+ out.fillText('macae',24,27);
+ out.fillStyle='#777984';
+ out.font='600 14px "DM Sans", sans-serif';
+ out.fillText(new Date().toLocaleDateString('en-US',{month:'short',day:'numeric',year:'numeric'}),24,68);
  out.textAlign='right';
  out.fillStyle='#555761';
- out.font='500 13px "DM Sans", sans-serif';
- out.fillText('DRAWN BY ARTIST',Math.max(24,exportCanvas.width-24),39);
+ out.font='600 15px "DM Sans", sans-serif';
+ out.fillText('DRAWN BY ARTIST',Math.max(24,exportCanvas.width-24),48);
  out.textAlign='left';
  out.drawImage(canvas,0,header);
  return exportCanvas;
