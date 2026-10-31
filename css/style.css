@@ -749,3 +749,41 @@ html,body{background:#f3f3f3;color:#171717;font-family:'DM Sans',sans-serif}
   max-width:34px!important;
  }
 }
+
+
+/* Restore the original four-group toolbar distribution; center More only in its own final slot */
+.tool-section .toolbar{
+ grid-template-columns:repeat(3,42px) 1px repeat(4,42px) 1px repeat(2,42px) 1px 42px!important;
+ justify-content:space-between!important;
+}
+.tool-section .toolbar>.more-wrap{
+ width:42px!important;
+ min-width:42px!important;
+ max-width:42px!important;
+ justify-self:center!important;
+ display:flex!important;
+ align-items:center!important;
+ justify-content:center!important;
+}
+.tool-section .toolbar>.more-wrap>.tool{
+ width:42px!important;
+ min-width:42px!important;
+ max-width:42px!important;
+ justify-self:center!important;
+}
+@media(max-width:700px){
+ .tool-section .toolbar{
+  grid-template-columns:repeat(3,34px) 1px repeat(4,34px) 1px repeat(2,34px) 1px 34px!important;
+  justify-content:space-between!important;
+ }
+ .tool-section .toolbar>.more-wrap{
+  width:34px!important;
+  min-width:34px!important;
+  max-width:34px!important;
+ }
+ .tool-section .toolbar>.more-wrap>.tool{
+  width:34px!important;
+  min-width:34px!important;
+  max-width:34px!important;
+ }
+}
