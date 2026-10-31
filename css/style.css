@@ -970,3 +970,6 @@ html,body{background:#f3f3f3;color:#171717;font-family:'DM Sans',sans-serif}
  transform:translateY(-50%)!important;
  z-index:2!important;
 }
+
+.chat-messages.scroll-locked{overflow-y:auto!important;overscroll-behavior:none!important;touch-action:pan-x!important;}
+.chat-messages.scroll-locked::-webkit-scrollbar{width:0!important}
