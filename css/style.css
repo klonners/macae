@@ -855,3 +855,18 @@ html,body{background:#f3f3f3;color:#171717;font-family:'DM Sans',sans-serif}
  }
  .tool-section .toolbar.more-open>.more-wrap>.more-extra i{font-size:19px!important}
 }
+
+
+/* Expanded More actions: five evenly spaced, padded icon slots */
+.tool-section .toolbar.more-open{grid-template-columns:repeat(3,42px) 1px repeat(4,42px) 1px repeat(2,42px) 1px 210px!important}
+.tool-section .toolbar.more-open>.more-wrap{width:210px!important;min-width:210px!important;max-width:210px!important;display:flex!important;align-items:center!important;justify-content:space-evenly!important;gap:2px!important;padding:0 5px!important;box-sizing:border-box!important}
+.tool-section .toolbar.more-open>.more-wrap>.more-extra,
+.tool-section .toolbar.more-open>.more-wrap>#moreBtn{flex:0 0 38px!important;width:38px!important;min-width:38px!important;max-width:38px!important;height:42px!important;min-height:42px!important;padding:0!important;margin:0!important;display:grid!important;place-items:center!important;border-radius:10px!important}
+.tool-section .toolbar.more-open>.more-wrap>.more-extra i{font-size:20px!important;line-height:1!important}
+@media(max-width:700px){
+ .tool-section .toolbar.more-open{grid-template-columns:repeat(3,34px) 1px repeat(4,34px) 1px repeat(2,34px) 1px 170px!important}
+ .tool-section .toolbar.more-open>.more-wrap{width:170px!important;min-width:170px!important;max-width:170px!important;padding:0 3px!important;gap:1px!important}
+ .tool-section .toolbar.more-open>.more-wrap>.more-extra,
+ .tool-section .toolbar.more-open>.more-wrap>#moreBtn{flex:0 0 32px!important;width:32px!important;min-width:32px!important;max-width:32px!important;height:35px!important;min-height:35px!important;border-radius:9px!important}
+ .tool-section .toolbar.more-open>.more-wrap>.more-extra i{font-size:18px!important}
+}
