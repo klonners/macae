@@ -1721,3 +1721,55 @@ html,body{background:#f3f3f3;color:#171717;font-family:'DM Sans',sans-serif}
  from{opacity:0;rotate:-90deg}
  to{opacity:1;rotate:0deg}
 }
+
+
+/* Final icon swap correction: identical icon box, no size-pulse animation */
+.tool-section .toolbar .more-wrap>#moreBtn{
+ position:relative!important;
+ display:grid!important;
+ place-items:center!important;
+}
+.tool-section .toolbar .more-wrap>#moreBtn .more-dots-icon,
+.tool-section .toolbar .more-wrap>#moreBtn .more-cross-icon{
+ position:absolute!important;
+ left:50%!important;
+ top:50%!important;
+ width:22px!important;
+ height:22px!important;
+ min-width:22px!important;
+ min-height:22px!important;
+ margin:0!important;
+ padding:0!important;
+ display:flex!important;
+ align-items:center!important;
+ justify-content:center!important;
+ font-size:21px!important;
+ line-height:1!important;
+ font-weight:400!important;
+ transform:translate(-50%,-50%)!important;
+ transform-origin:50% 50%!important;
+ scale:1!important;
+ transition:opacity .16s ease, rotate .16s ease!important;
+ animation:none!important;
+ pointer-events:none!important;
+}
+.tool-section .toolbar .more-wrap>#moreBtn .more-dots-icon{
+ opacity:1!important;
+ rotate:0deg!important;
+}
+.tool-section .toolbar .more-wrap>#moreBtn .more-cross-icon{
+ opacity:0!important;
+ rotate:-45deg!important;
+}
+.tool-section .toolbar.more-open .more-wrap>#moreBtn .more-dots-icon{
+ opacity:0!important;
+ rotate:45deg!important;
+}
+.tool-section .toolbar.more-open .more-wrap>#moreBtn .more-cross-icon{
+ opacity:1!important;
+ rotate:0deg!important;
+}
+.tool-section .toolbar .more-wrap.icon-animating>#moreBtn .more-dots-icon,
+.tool-section .toolbar .more-wrap.icon-animating>#moreBtn .more-cross-icon{
+ animation:none!important;
+}
