@@ -913,3 +913,35 @@ html,body{background:#f3f3f3;color:#171717;font-family:'DM Sans',sans-serif}
   min-height:40px!important;
  }
 }
+
+
+/* Expanded actions: larger icons with identical fixed-width slots and equal gaps */
+.tool-section .toolbar.more-open>.more-wrap{
+ justify-content:space-between!important;
+ gap:0!important;
+ padding:0 18px!important;
+}
+.tool-section .toolbar.more-open>.more-wrap>.more-extra,
+.tool-section .toolbar.more-open>.more-wrap>#moreBtn{
+ flex:0 0 48px!important;
+ width:48px!important;
+ min-width:48px!important;
+ max-width:48px!important;
+}
+.tool-section .toolbar.more-open>.more-wrap>.more-extra i,
+.tool-section .toolbar.more-open>.more-wrap>#moreBtn i{
+ font-size:24px!important;
+ line-height:1!important;
+}
+@media(max-width:700px){
+ .tool-section .toolbar.more-open>.more-wrap{padding:0 10px!important}
+ .tool-section .toolbar.more-open>.more-wrap>.more-extra,
+ .tool-section .toolbar.more-open>.more-wrap>#moreBtn{
+  flex:0 0 42px!important;
+  width:42px!important;
+  min-width:42px!important;
+  max-width:42px!important;
+ }
+ .tool-section .toolbar.more-open>.more-wrap>.more-extra i,
+ .tool-section .toolbar.more-open>.more-wrap>#moreBtn i{font-size:22px!important}
+}
