@@ -791,3 +791,13 @@ html,body{background:#f3f3f3;color:#171717;font-family:'DM Sans',sans-serif}
 
 /* Fine optical adjustment: move only the More button slightly left within group four */
 .tool-section .toolbar>.more-wrap>#moreBtn{transform:translateX(-5px)!important}
+
+
+/* When More switches to the close cross, hide the other toolbar controls while preserving their slots */
+.tool-section .toolbar.more-open>:not(.more-wrap){
+ visibility:hidden!important;
+ pointer-events:none!important;
+}
+.tool-section .toolbar>:not(.more-wrap){
+ transition:opacity .12s ease,visibility .12s ease;
+}
